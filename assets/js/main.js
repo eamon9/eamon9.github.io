@@ -42,6 +42,35 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+//
+document.addEventListener("DOMContentLoaded", function () {
+  // Atrodi visas navigācijas saites
+  let navLinks = document.querySelectorAll(
+    ".navbar-nav .nav-link, .navbar-nav .dropdown-item"
+  );
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function () {
+      // Noņem "active" no visiem elementiem
+      navLinks.forEach((nav) => nav.classList.remove("active"));
+
+      // Pievieno "active" pašreizējai saitei
+      this.classList.add("active");
+
+      // Pārbauda, vai klikšķinātā saite atrodas dropdown, un pievieno active arī dropdown-toggle
+      let parentDropdown = this.closest(".dropdown");
+      if (parentDropdown) {
+        let dropdownToggle = parentDropdown.querySelector(
+          ".nav-link.dropdown-toggle"
+        );
+        dropdownToggle.classList.add("active");
+      }
+    });
+  });
+});
+
+
+
 // atverot mājaslapu, automātiski ielādējas main lapa content sadaļā
 window.onload = function () {
   fetch("./pages/main.html")
