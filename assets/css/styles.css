@@ -1,5 +1,6 @@
 body {
   background-color: #ffffff;
+  font-size: 18px;
 }
 
 .nav-item {
@@ -58,4 +59,8 @@ h1 {
   height: 200%;
   overflow: hidden;
   object-position:top left;
+}
+
+.modal-xxl {
+  --bs-modal-width: 60%;
 }
