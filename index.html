@@ -13,167 +13,145 @@
 
 <body>
   <main>
-    <header class= "border-bottom">
-      <div class="title-container">
-        <div class="title container d-flex flex-wrap align-items-center justify-content-center" style="height: 200px">
-          <span class="vecmaminas-span">Vecmāmiņas.LV</span></div>
-      </div>
+    <header class="border-bottom">
 
+      <!-- Saziņai, Rakstiet, Sekojiet -->
       <div class="container">
-        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <div class="row row-cols-md-1 row-cols-md-3 g-4 pt-4">
 
-          <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
-            <div class="container-fluid">
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
-                aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-          
-              <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
-                <ul class="navbar-nav">
-                  <li class="nav-item">
-                    <a class="nav-link active link-primary" aria-current="page" href="#">Sākumlapa</a>
-                  </li>
-
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Par mums</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Biedri</a></li>
-                      <li><a class="dropdown-item" href="#">Statūti</a></li>
-                      <li><a class="dropdown-item" href="#">Attīstības stratēģija</a></li>
-                      <li><a class="dropdown-item" href="#">Darbības pārskati</a></li>
-                      <li><a class="dropdown-item" href="#">Atbalstītāji un Sadarbības partneri</a></li>
-                      <li><a class="dropdown-item" href="#">Ieviestie projekti</a></li>
-                      <li><a class="dropdown-item" href="#">Kontakti</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Resursu krātuve</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">Vēlos iesaistīties</a>
-                  </li>
-                  <!-- <li class="nav-item">
-                    <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-                  </li> -->
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown</a>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                </ul>
-              </div>
+          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+            <img class="me-2 w-auto" src="assets/images/whatsapp.svg" alt="WhatsAppLogo">
+            <div>
+              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Saziņai</h3>
+              <p>Ināra Pučuka<br>
+                +371 29789703</p>
             </div>
-          </nav>
+          </div>
+          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+            <img class="me-2 w-auto" src="assets/images/envelope.svg" alt="MailLogo">
+            <div>
+              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Rakstiet</h3>
+              <p>vecmaminas@gmail.com</p>
+            </div>
+          </div>
 
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-secondary">Sākumlapa</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Par mums</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Aktivitātes</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Projekti</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Galerija</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Noderīgi</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Iesaisties</a></li>
-            <li><a href="#" class="nav-link px-2 link-body-emphasis">Kontakti</a></li>
-          </ul>
+          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+            <img class="me-2" src="assets/images/facebook.svg" alt="SocialLogo">
+            <div class="dropdown">
+              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link dropdown-toggle" data-bs-toggle="dropdown">
+                Sekojiet</h3>
+              <ul class="dropdown-menu" id="dropdownMenu">
+                <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
+              </ul>
+              <p>Sociālie tīkli</p>
+            </div>
+          </div>
 
-          <!-- zemāk var iespējot search bar, bet ir vajadzīga funkcionalitāte iekš JS -->
-          <!-- <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-            <input type="search" class="form-control" placeholder="Meklēt..." aria-label="Search">
-          </form> -->
         </div>
       </div>
+
+      <!-- Sākumlapa, Par mums, Aktivitātes, Noderīgi, Vēlos iesaistīties, Galerija, Resursu krātuve -->
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
+        <div class="container-fluid">
+          <!-- burger menu icon on small screens -->
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+            aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse justify-content-md-center" id="navbarsExample10">
+            <ul class="navbar-nav">
+              <!-- Sākumlapa -->
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#"
+                  onclick="loadContent('./pages/main.html')">Sākumlapa</a>
+              </li>
+
+              <!-- Par mums -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false"
+                  onclick="loadContent('./pages/about-us.html')">Par
+                  mums</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'members')">Biedri</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'statute')">Statūti</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'development')">Attīstības stratēģija</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'performance-reports')">Darbības pārskati</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'supporters')">Atbalstītāji un Sadarbības partneri</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'projects')">Ieviestie projekti</a></li>
+                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'contacts')">Kontakti</a></li>
+                </ul>
+              </li>
+
+              <!-- Aktivitātes -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                  aria-expanded="false">Aktivitātes</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Aktuālie projekti</a></li>
+                </ul>
+              </li>
+
+              <!-- Noderīgi -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                  aria-expanded="false">Noderīgi</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Linki</a></li>
+                  <li><a class="dropdown-item" href="#">Veselīgs dzīvesveids</a></li>
+                </ul>
+              </li>
+
+              <!-- Vēlos iesaistīties -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Vēlos
+                  iesaistīties</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Anketa #1</a></li>
+                  <li><a class="dropdown-item" href="#">Anketa #2</a></li>
+                  <li><a class="dropdown-item" href="#">Ziedo</a></li>
+                </ul>
+              </li>
+
+              <!-- Galerija -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                  aria-expanded="false">Galerija</a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
+                  <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
+                  <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
+                </ul>
+              </li>
+
+              <!-- Resursu krātuve -->
+              <li class="nav-item">
+                <a class="nav-link" href="#">Resursu krātuve</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
     </header>
-    <div class="container">
-      <h1>Sveika Ināra😃!</h1>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-      <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Optio dolore dolores in a repellendus eveniet aliquam
-        tempore dolorem nesciunt. Asperiores dolores voluptas provident aut ratione ipsam iusto corrupti cupiditate
-        deleniti.</p>
-    </div>
+
+    <!-- MAIN CONTENT (Dinamiskā daļa) -->
+    <main class="container" id="content">
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>&copy; 2025 Mana Lapa</p>
+    </footer>
 
   </main>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+  <script src="./assets/js/main.js"></script>
 </body>
 
 </html>
