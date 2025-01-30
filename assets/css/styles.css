@@ -1,0 +1,44 @@
+body {
+  background-color: #ffffff;
+  
+}
+
+.nav-item {
+  font-family: 'PT Serif', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+header {
+}
+
+/* @media (max-width: 768px) {
+  header {
+    background-image: url("/assets/images/title-background.png");
+    background-position: top center;
+  }
+} */
+
+.title-container {
+  background-image: url("/assets/images/title-background.png");
+  background-size: cover;
+  background-size: 100%;
+  background-position: 10% 80%;
+  background-repeat: no-repeat;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.vecmaminas-span {
+  background-color: #dc8a256d;
+  color: aliceblue;
+  border-radius: .5rem;
+  padding: .5rem;
+  font-family:fantasy;
+}
+
+h1 {
+  text-align: center;
+}
