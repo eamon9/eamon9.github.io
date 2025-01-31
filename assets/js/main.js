@@ -1,5 +1,50 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Dropdown logic
+// Ielādē header, footer un sākumlapas saturu
+async function loadComponent(id, file) {
+  try {
+    const response = await fetch(file);
+    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
+    document.getElementById(id).innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+window.onload = async function () {
+  await loadComponent("header", "./components/header.html");
+  await loadComponent("footer", "./components/footer.html");
+  await loadContent("./pages/main.html"); // Automātiski ielādē sākumlapu
+
+  // Pēc header ielādes inicializē dropdown un formu validāciju
+  initializeDropdowns();
+  initFormValidation();
+};
+
+// Funkcija, lai ielādētu sadaļu pēc izvēles
+async function loadContent(page, sectionId = null) {
+  const content = document.getElementById("content");
+  try {
+    const response = await fetch(page);
+    if (!response.ok) throw new Error("Failu nevarēja ielādēt");
+    const data = await response.text();
+    content.innerHTML = data;
+
+    // Pievieno validāciju pēc satura ielādes
+    initFormValidation();
+
+    // Ja ir norādīta sadaļa, uz kuru pāriet
+    if (sectionId) {
+      setTimeout(() => {
+        const section = document.getElementById(sectionId);
+        if (section) section.scrollIntoView({behavior: "smooth"});
+      }, 100);
+    }
+  } catch (error) {
+    content.innerHTML = `<h2>Kļūda</h2><p>${error.message}</p>`;
+  }
+}
+
+// Funkcija dropdown loģikas inicializācijai
+function initializeDropdowns() {
   if (window.innerWidth >= 992) {
     let dropdowns = document.querySelectorAll(".dropdown");
     dropdowns.forEach(function (dropdown) {
@@ -37,8 +82,24 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   }
+}
 
-  // Active class handling
+// Funkcija formu validācijai
+function initFormValidation() {
+  var forms = document.querySelectorAll(".needs-validation");
+  Array.prototype.slice.call(forms).forEach(function (form) {
+    form.addEventListener("submit", function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      form.classList.add("was-validated");
+    });
+  });
+}
+
+// Navigācijas aktīvās klases pārvaldība
+document.addEventListener("DOMContentLoaded", function () {
   let navLinks = document.querySelectorAll(
     ".navbar-nav .nav-link, .navbar-nav .dropdown-item"
   );
@@ -56,75 +117,4 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-
-  // Form validation
-  var forms = document.querySelectorAll(".needs-validation");
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        form.classList.add("was-validated");
-      },
-      false
-    );
-  });
 });
-
-// atverot mājaslapu, automātiski ielādējas main lapa content sadaļā
-window.onload = function () {
-  fetch("./pages/main.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("content").innerHTML = data;
-    })
-    .catch((error) => console.error("Error loading content:", error));
-};
-
-// MAIN lapā content sadaļā ielādē nepieciešamo sadaļu, atkarībā no user izvēles
-async function loadContent(page, sectionId = null) {
-  const content = document.getElementById("content");
-
-  try {
-    const response = await fetch(page);
-    if (!response.ok) {
-      throw new Error("Failu nevarēja ielādēt");
-    }
-    const data = await response.text();
-    content.innerHTML = data;
-
-    // Pārliecinies, ka formām tiek pievienota validācija
-    initFormValidation();
-
-    if (sectionId) {
-      setTimeout(() => {
-        const section = document.getElementById(sectionId);
-        if (section) {
-          section.scrollIntoView({behavior: "smooth"});
-        }
-      }, 100);
-    }
-  } catch (error) {
-    content.innerHTML = `<h2>Kļūda</h2><p>${error.message}</p>`;
-  }
-}
-
-function initFormValidation() {
-  var forms = document.querySelectorAll(".needs-validation");
-  Array.prototype.slice.call(forms).forEach(function (form) {
-    form.addEventListener(
-      "submit",
-      function (event) {
-        if (!form.checkValidity()) {
-          event.preventDefault(); // Novērš formas iesniegšanu
-          event.stopPropagation(); // Aptur tālāku notikumu izpildi
-        }
-        form.classList.add("was-validated"); // Pievieno Bootstrap validācijas klasi
-      },
-      false
-    );
-  });
-}
