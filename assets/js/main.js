@@ -12,11 +12,14 @@ async function loadComponent(id, file) {
 window.onload = async function () {
   await loadComponent("header", "./components/header.html");
   await loadComponent("footer", "./components/footer.html");
-  await loadContent("./pages/main.html"); // Automātiski ielādē sākumlapu
+  await loadContent("./pages/main.html");
 
   // Pēc header ielādes inicializē dropdown un formu validāciju
   initializeDropdowns();
   initFormValidation();
+
+  // Pārvalda aktīvo klasi pēc ielādes (arī footer)
+  setActiveNavLink();
 };
 
 // Funkcija, lai ielādētu sadaļu pēc izvēles
@@ -30,6 +33,9 @@ async function loadContent(page, sectionId = null) {
 
     // Pievieno validāciju pēc satura ielādes
     initFormValidation();
+
+    // Pārvalda aktīvo klasi pēc ielādes
+    setActiveNavLink();
 
     // Ja ir norādīta sadaļa, uz kuru pāriet
     if (sectionId) {
@@ -98,23 +104,31 @@ function initFormValidation() {
   });
 }
 
-// Navigācijas aktīvās klases pārvaldība
-document.addEventListener("DOMContentLoaded", function () {
+// Funkcija, lai pārvaldītu aktīvo navigācijas saiti (iekļaujot footer sadaļu)
+function setActiveNavLink() {
+  // Atlasām visus linkus gan navbar, gan footer sadaļās
   let navLinks = document.querySelectorAll(
-    ".navbar-nav .nav-link, .navbar-nav .dropdown-item"
+    ".navbar-nav .nav-link, .navbar-nav .dropdown-item, .footer-nav .nav-link, .footer-nav .dropdown-item"
   );
+
   navLinks.forEach((link) => {
     link.addEventListener("click", function () {
+      // Noņemam 'active' klasi no visām saitēm
       navLinks.forEach((nav) => nav.classList.remove("active"));
+      
+      // Pievienojam 'active' klasi izvēlētajai saitei
       this.classList.add("active");
 
+      // Pārbaudām, vai ir dropdown, un pievienojam 'active' klasei arī tās toggle pogai
       let parentDropdown = this.closest(".dropdown");
       if (parentDropdown) {
         let dropdownToggle = parentDropdown.querySelector(
           ".nav-link.dropdown-toggle"
         );
-        dropdownToggle.classList.add("active");
+        if (dropdownToggle) {
+          dropdownToggle.classList.add("active");
+        }
       }
     });
   });
-});
+}
