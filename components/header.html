@@ -1,136 +1,138 @@
 <header class="border-bottom">
 
-      <!--^ Saziņai, Rakstiet, Sekojiet -->
-      <div class="container">
-        <div class="row row-cols-md-1 row-cols-md-3 g-4 pt-4">
+  <div class="px-4 my-5">
+    <img class="d-block mx-auto mb-4" src="/assets/images/granniesLogo.png" alt="" width="200" height="200">
+  </div>
+  <!--^ Saziņai, Rakstiet, Sekojiet -->
+  <div class="container">
+    <div class="row row-cols-md-1 row-cols-md-3 g-4 pt-4">
 
-          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
-            <img class="me-2 w-auto" src="assets/images/whatsapp.svg" alt="WhatsAppLogo">
-            <div>
-              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Saziņai</h3>
-              <p>Ināra Pučuka<br>
-                +371 29789703</p>
-            </div>
-          </div>
-          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
-            <img class="me-2 w-auto" src="assets/images/envelope.svg" alt="MailLogo">
-            <div>
-              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Rakstiet</h3>
-              <p>vecmaminas@gmail.com</p>
-            </div>
-          </div>
-
-          <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
-            <img class="me-2" src="assets/images/facebook-big.svg" alt="SocialLogo">
-            <div class="dropdown">
-              <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                Sekojiet</h3>
-              <ul class="dropdown-menu" id="dropdownMenu">
-                <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
-                <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
-              </ul>
-              <p>Sociālie tīkli</p>
-            </div>
-          </div>
-
+      <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+        <img class="me-2 w-auto" src="assets/images/whatsapp.svg" alt="WhatsAppLogo">
+        <div>
+          <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Saziņai</h3>
+          <p>Ināra Pučuka<br>
+            +371 29789703</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+        <img class="me-2 w-auto" src="assets/images/envelope.svg" alt="MailLogo">
+        <div>
+          <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link">Rakstiet</h3>
+          <p>vecmaminas@gmail.com</p>
         </div>
       </div>
 
-      <!--^ Sākumlapa, Par mums, Aktivitātes, Noderīgi, Vēlos iesaistīties, Galerija, Resursu krātuve -->
-      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
-        <div class="container-fluid">
-          <!--! burger menu icon on small screens -->
-          <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
+      <div class="col d-flex align-items-start justify-content-lg-start justify-content-xl-center">
+        <img class="me-2" src="assets/images/facebook-big.svg" alt="SocialLogo">
+        <div class="dropdown">
+          <h3 class="fw-bold mb-0 fs-5 text-body-emphasis nav-link dropdown-toggle" data-bs-toggle="dropdown">
+            Sekojiet</h3>
+          <ul class="dropdown-menu" id="dropdownMenu">
+            <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
+            <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
+            <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
+          </ul>
+          <p>Sociālie tīkli</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!--^ Sākumlapa, Par mums, Aktivitātes, Noderīgi, Vēlos iesaistīties, Galerija, Resursu krātuve -->
+  <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
+    <div class="container-fluid">
+      <!--! burger menu icon on small screens -->
+      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample10"
             aria-controls="navbarsExample10" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button> -->
 
-          <div class="navbar-collapse justify-content-md-center" id="navbarsExample10">
-            <ul class="navbar-nav">
-              <!--* Sākumlapa -->
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#"
-                  onclick="loadContent('./pages/main.html')">Sākumlapa</a>
-              </li>
+      <div class="navbar-collapse justify-content-md-center" id="navbarsExample10">
+        <ul class="navbar-nav">
+          <!--* Sākumlapa -->
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"
+              onclick="loadContent('./pages/main.html')">Sākumlapa</a>
+          </li>
 
-              <!--* Par mums -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false"
-                  onclick="loadContent('./pages/about-us.html')">Par
-                  mums</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'members')">Biedri</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'statute')">Statūti</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'development')">Attīstības stratēģija</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'performance-reports')">Darbības pārskati</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'supporters')">Atbalstītāji un Sadarbības
-                      partneri</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'projects')">Ieviestie projekti</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/about-us.html', 'contacts')">Kontakti</a></li>
-                </ul>
+          <!--* Par mums -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="" data-bs-toggle="dropdown" aria-expanded="false"
+              onclick="loadContent('./pages/about-us.html')">Par
+              mums</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'members')">Biedri</a>
               </li>
-
-              <!--* Aktivitātes -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
-                  onclick="loadContent('./pages/activities.html')">Aktivitātes</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/activities.html', 'current-projects')">Aktuālie projekti</a></li>
-                </ul>
-              </li>
-
-              <!--* Noderīgi -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
-                  onclick="loadContent('./pages/useful.html')">Noderīgi</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/useful.html', 'links')">Linki</a>
-                  </li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/useful.html', 'healthy-lifestyle')">Veselīgs dzīvesveids</a></li>
-                </ul>
-              </li>
-
-              <!--* Vēlos iesaistīties -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
-                  onclick="loadContent('./pages/involved.html')">Vēlos
-                  iesaistīties</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/form1.html')">Anketa #1</a></li>
-                  <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/form2.html')">Anketa #2</a></li>
-                  <li><a class="dropdown-item" href="#"
-                      onclick="loadContent('./pages/involved.html', 'donate')">Ziedo</a></li>
-                </ul>
-              </li>
-
-              <!--* Galerija -->
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
-                  aria-expanded="false">Galerija</a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
-                  <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
-                  <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
-                </ul>
-              </li>
-
-              <!--* Resursu krātuve -->
-              <li class="nav-item">
-                <a class="nav-link" href="#" onclick="loadContent('./pages/resource-repository.html')">Resursu krātuve</a>
-              </li>
-
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/about-us.html', 'statute')">Statūti</a></li>
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/about-us.html', 'development')">Attīstības stratēģija</a></li>
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/about-us.html', 'performance-reports')">Darbības pārskati</a></li>
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/about-us.html', 'supporters')">Atbalstītāji un Sadarbības
+                  partneri</a></li>
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/about-us.html', 'projects')">Ieviestie
+                  projekti</a></li>
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/about-us.html', 'contacts')">Kontakti</a></li>
             </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+          </li>
+
+          <!--* Aktivitātes -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
+              onclick="loadContent('./pages/activities.html')">Aktivitātes</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/activities.html', 'current-projects')">Aktuālie projekti</a></li>
+            </ul>
+          </li>
+
+          <!--* Noderīgi -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
+              onclick="loadContent('./pages/useful.html')">Noderīgi</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/useful.html', 'links')">Linki</a>
+              </li>
+              <li><a class="dropdown-item" href="#"
+                  onclick="loadContent('./pages/useful.html', 'healthy-lifestyle')">Veselīgs dzīvesveids</a></li>
+            </ul>
+          </li>
+
+          <!--* Vēlos iesaistīties -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false"
+              onclick="loadContent('./pages/involved.html')">Vēlos
+              iesaistīties</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/form1.html')">Anketa #1</a></li>
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/form2.html')">Anketa #2</a></li>
+              <li><a class="dropdown-item" href="#" onclick="loadContent('./pages/involved.html', 'donate')">Ziedo</a>
+              </li>
+            </ul>
+          </li>
+
+          <!--* Galerija -->
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Galerija</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="https://www.facebook.com" target="_blank">Facebook</a></li>
+              <li><a class="dropdown-item" href="https://www.instagram.com" target="_blank">Instagram</a></li>
+              <li><a class="dropdown-item" href="https://www.youtube.com" target="_blank">Youtube</a></li>
+            </ul>
+          </li>
+
+          <!--* Resursu krātuve -->
+          <li class="nav-item">
+            <a class="nav-link" href="#" onclick="loadContent('./pages/resource-repository.html')">Resursu krātuve</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
