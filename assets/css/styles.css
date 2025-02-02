@@ -58,9 +58,32 @@ h1 {
   width: 200%;
   height: 200%;
   overflow: hidden;
-  object-position:top left;
+  object-position: top left;
 }
 
 .modal-xxl {
   --bs-modal-width: 60%;
+}
+
+#screen-size-indicator {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .custom-img {
+    max-width: 100%;  /* Lai nepārsniegtu vecāka platumu */
+    height: auto;     /* Saglabā proporcijas */
+    float: none;      /* Noņem peldošo efektu, ja nepieciešams */
+    margin: 0 auto;   /* Centrē attēlu, ja vēlies */
+    display: block;
+  }
 }
