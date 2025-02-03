@@ -61,19 +61,8 @@ function adjustPaths() {
       img.src = basePath + "assets/images/" + src; // Pieņemam, ka ceļš ir tikai faila nosaukums
     }
   });
-
-  // Pielāgo saišu ceļus
-  document.querySelectorAll("a").forEach((link) => {
-    let href = link.getAttribute("href");
-    if (href && !href.startsWith("http") && !href.startsWith("#")) {
-      if (href.endsWith("index.html")) {
-        link.href = basePath + "index.html";
-      } else if (href.startsWith("pages/")) {
-        link.href = basePath + href;
-      }
-    }
-  });
 }
+
 
 // Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
 /* function getPath(file) {
@@ -225,6 +214,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   window.addEventListener("load", updateScreenSize);
   window.addEventListener("resize", updateScreenSize);
 
+  adjustPaths();
   initializeDropdowns();
   initFormValidation();
 });
