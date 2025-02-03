@@ -1,6 +1,6 @@
 import {initFormValidation} from "./formValidation.js";
 
-function adjustPaths() {
+/* function adjustPaths() {
   // Pārbauda, vai mēs esam GitHub Pages vidē
   const isGitHubPages = window.location.hostname.includes("github.io");
 
@@ -35,7 +35,7 @@ function adjustPaths() {
 
 // Izsauc šo funkciju, kad lapa tiek ielādēta
 document.addEventListener("DOMContentLoaded", adjustPaths);
-
+ */
 
 function getPath(file) {
   const isGitHubPages = window.location.hostname.includes("github.io");
@@ -58,9 +58,19 @@ function getPath(file) {
 }
 
 
-async function loadComponent(id, file) {
+/* async function loadComponent(id, file) {
   try {
     const response = await fetch(getPath(file));
+    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
+    document.getElementById(id).innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
+  }
+} */
+
+async function loadComponent(id, file) {
+  try {
+    const response = await fetch(`../components/${file}`); // Ceļš tiek pielāgots
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
     document.getElementById(id).innerHTML = await response.text();
   } catch (error) {
