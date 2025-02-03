@@ -37,7 +37,7 @@ import {initFormValidation} from "./formValidation.js";
 document.addEventListener("DOMContentLoaded", adjustPaths);
  */
 
-function getPath(file) {
+/* function getPath(file) {
   const isGitHubPages = window.location.hostname.includes("github.io");
   const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
 
@@ -55,8 +55,19 @@ function getPath(file) {
   }
 
   return `${prefix}components/${file}`;
-}
+} */
 
+function getPath(file) {
+  const depth = window.location.pathname.split("/").length - 2;
+  let prefix = "";
+
+  // Ja lapa ir apakšmapēs, pievieno ../ atkarībā no dziļuma
+  for (let i = 0; i < depth; i++) {
+    prefix += "../";
+  }
+
+  return `${prefix}components/${file}`;
+}
 
 /* async function loadComponent(id, file) {
   try {
@@ -70,7 +81,7 @@ function getPath(file) {
 
 async function loadComponent(id, file) {
   try {
-    const response = await fetch(`../components/${file}`); // Ceļš tiek pielāgots
+    const response = await fetch(`components/${file}`); // Norāda tiešo ceļu uz komponentiem
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
     document.getElementById(id).innerHTML = await response.text();
   } catch (error) {
@@ -144,12 +155,13 @@ function initializeDropdowns() {
   }
 }
 
-
 // Funkcija, lai pārvaldītu aktīvo navigācijas saiti (iekļaujot footer sadaļu)
 function setActiveNavLink() {
-  const navLinks = document.querySelectorAll(".nav-link, .dropdown-item, footer a");  // Iekļauj arī footer linkus
+  const navLinks = document.querySelectorAll(
+    ".nav-link, .dropdown-item, footer a"
+  ); // Iekļauj arī footer linkus
   const currentPath = window.location.pathname + window.location.hash;
-  console.log("Pašreizējais ceļš:", currentPath);  // Debugging
+  console.log("Pašreizējais ceļš:", currentPath); // Debugging
 
   navLinks.forEach((link) => {
     try {
@@ -167,17 +179,19 @@ function setActiveNavLink() {
         // Ja aktīvais links ir dropdown-item, pievieno 'active' arī dropdown-toggle
         const parentDropdown = link.closest(".dropdown");
         if (parentDropdown) {
-          const dropdownToggle = parentDropdown.querySelector(".dropdown-toggle");
+          const dropdownToggle =
+            parentDropdown.querySelector(".dropdown-toggle");
           if (dropdownToggle) {
             dropdownToggle.classList.add("active");
           }
         }
 
         // Papildus - Atrodam visus linkus ar šo pašu href un pievienojam tiem 'active' klasi
-        document.querySelectorAll(`a[href='${link.href}']`).forEach((matchingLink) => {
-          matchingLink.classList.add("active");
-        });
-
+        document
+          .querySelectorAll(`a[href='${link.href}']`)
+          .forEach((matchingLink) => {
+            matchingLink.classList.add("active");
+          });
       } else {
         link.classList.remove("active");
       }
@@ -185,14 +199,13 @@ function setActiveNavLink() {
       console.error("Kļūda apstrādājot linku:", link, error);
     }
   });
-} 
-  
-  // Izsaucam sākotnēji, kad lapa ielādējas
-document.addEventListener('DOMContentLoaded', setActiveNavLink);
+}
+
+// Izsaucam sākotnēji, kad lapa ielādējas
+document.addEventListener("DOMContentLoaded", setActiveNavLink);
 
 // Pievienojam klausītāju enkura maiņai (hash izmaiņām)
-window.addEventListener('hashchange', setActiveNavLink);
-
+window.addEventListener("hashchange", setActiveNavLink);
 
 // labajā apakšējā ekrāna malā parāda ekrāna izmēru, lai vieglāk izsekot bootstrap izmēriem
 function getBootstrapBreakpoint() {
