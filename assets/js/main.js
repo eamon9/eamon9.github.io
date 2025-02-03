@@ -1,6 +1,43 @@
 import {initFormValidation} from "./formValidation.js";
 
 // Funkcija attēlu un saišu ceļu pielāgošanai atkarībā no pašreizējās lapas
+/* function adjustPaths() {
+  const currentPath = window.location.pathname;
+
+  // Pārbauda, vai esam GitHub Pages apakšmapē
+  const isGitHubPages = window.location.hostname === "eamon9.github.io";
+  const isGranniesSubfolder = currentPath.includes("/grannies/");
+
+  // Iestata bāzes ceļu attēliem
+  let basePath = "./";
+  if (isGitHubPages && isGranniesSubfolder) {
+    basePath = "/grannies/";
+  } else if (currentPath.includes("/pages/")) {
+    basePath = "../";
+  }
+
+  // Pielāgo attēlu ceļus
+  document.querySelectorAll("img").forEach((img) => {
+    const src = img.getAttribute("src");
+    if (src && !src.startsWith("http")) {
+      img.src =
+        basePath + src.replace(/^(\.\/)?assets\/images\//, "assets/images/");
+    }
+  });
+
+  // Pielāgo saišu ceļus
+  document.querySelectorAll("a").forEach((link) => {
+    let href = link.getAttribute("href");
+    if (href && !href.startsWith("http") && !href.startsWith("#")) {
+      if (href.endsWith("index.html")) {
+        link.href = basePath + "index.html";
+      } else if (href.startsWith("pages/")) {
+        link.href = basePath + href;
+      }
+    }
+  });
+} */
+
 function adjustPaths() {
   const currentPath = window.location.pathname;
 
