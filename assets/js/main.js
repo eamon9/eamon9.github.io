@@ -1,18 +1,25 @@
 import {initFormValidation} from "./formValidation.js";
 
 function getPath(file) {
-  // Pārbauda, vai pašreizējā lapa atrodas saknes direktorijā vai apakšmapēs
-  const depth = window.location.pathname.split("/").length - 2;
+  const isGitHubPages = window.location.hostname.includes("github.io");
+  const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
 
+  const depth = window.location.pathname.split("/").length - 2;
   let prefix = "";
 
-  // Ja lapa ir apakšmapēs, pievieno ../ atkarībā no dziļuma
-  for (let i = 0; i < depth; i++) {
-    prefix += "../";
+  // Ja strādā uz GitHub Pages, pievieno repozitorija nosaukumu ceļam
+  if (isGitHubPages) {
+    prefix = `/${repoName}/`;
+  } else {
+    // Ja strādā lokāli, aprēķina ceļu balstoties uz mapju dziļumu
+    for (let i = 0; i < depth; i++) {
+      prefix += "../";
+    }
   }
 
   return `${prefix}components/${file}`;
 }
+
 
 async function loadComponent(id, file) {
   try {
