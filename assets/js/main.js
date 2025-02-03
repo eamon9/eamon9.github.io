@@ -1,6 +1,35 @@
-import {initFormValidation} from "./formValidation.js";
+import { initFormValidation } from "./formValidation.js";
 
-function getPath(file) {
+function adjustPaths() {
+  const currentPath = window.location.pathname;
+
+  // Ja atrodamies apakšmapē (piemēram, /pages/about-us.html)
+  const prefix = currentPath.includes("/pages/") ? "../" : "./";
+
+  // Pielāgo attēlu ceļus
+  document.querySelectorAll("img").forEach((img) => {
+    if (img.src.includes("assets/images/")) {
+      img.src = img.src.replace("assets/images/", `${prefix}assets/images/`);
+    }
+  });
+
+  // Pielāgo saišu ceļus
+  document.querySelectorAll("a").forEach((link) => {
+    let href = link.getAttribute("href");
+
+    if (href && href.endsWith("index.html")) {
+      link.href = prefix + "index.html";
+    } else if (href && href.startsWith("pages/")) {
+      link.href = prefix + href;
+    }
+  });
+}
+
+// Pārliecinies, ka skripts izpildās pēc DOM ielādes
+document.addEventListener("DOMContentLoaded", adjustPaths);
+
+
+/* function getPath(file) {
   // Pārbauda, vai pašreizējā lapa atrodas saknes direktorijā vai apakšmapēs
   const depth = window.location.pathname.split("/").length - 2;
 
@@ -12,7 +41,33 @@ function getPath(file) {
   }
 
   return `${prefix}components/${file}`;
+} */
+
+function getPath(file) {
+  let prefix = "";
+
+  // Pārbauda, vai esam GitHub Pages (URL satur '/grannies')
+  if (
+    window.location.hostname === "eamon9.github.io" ||
+    window.location.pathname.includes("/grannies/")
+  ) {
+    prefix = "/grannies/"; // GitHub Pages apakšmape
+  }
+
+  // Ja esam lokāli, pārbaudām ceļa dziļumu
+  if (
+    window.location.hostname === "localhost" ||
+    window.location.pathname.startsWith("/")
+  ) {
+    const depth = window.location.pathname.split("/").length - 2; // Aprēķina dziļumu
+    for (let i = 0; i < depth; i++) {
+      prefix += "../"; // Pievieno atbilstošo ../, lai atgrieztos uz augšu
+    }
+  }
+
+  return `${prefix}components/${file}`;
 }
+
 
 async function loadComponent(id, file) {
   try {
@@ -90,12 +145,13 @@ function initializeDropdowns() {
   }
 }
 
-
 // Funkcija, lai pārvaldītu aktīvo navigācijas saiti (iekļaujot footer sadaļu)
 function setActiveNavLink() {
-  const navLinks = document.querySelectorAll(".nav-link, .dropdown-item, footer a");  // Iekļauj arī footer linkus
+  const navLinks = document.querySelectorAll(
+    ".nav-link, .dropdown-item, footer a"
+  ); // Iekļauj arī footer linkus
   const currentPath = window.location.pathname + window.location.hash;
-  console.log("Pašreizējais ceļš:", currentPath);  // Debugging
+  console.log("Pašreizējais ceļš:", currentPath); // Debugging
 
   navLinks.forEach((link) => {
     try {
@@ -113,17 +169,19 @@ function setActiveNavLink() {
         // Ja aktīvais links ir dropdown-item, pievieno 'active' arī dropdown-toggle
         const parentDropdown = link.closest(".dropdown");
         if (parentDropdown) {
-          const dropdownToggle = parentDropdown.querySelector(".dropdown-toggle");
+          const dropdownToggle =
+            parentDropdown.querySelector(".dropdown-toggle");
           if (dropdownToggle) {
             dropdownToggle.classList.add("active");
           }
         }
 
         // Papildus - Atrodam visus linkus ar šo pašu href un pievienojam tiem 'active' klasi
-        document.querySelectorAll(`a[href='${link.href}']`).forEach((matchingLink) => {
-          matchingLink.classList.add("active");
-        });
-
+        document
+          .querySelectorAll(`a[href='${link.href}']`)
+          .forEach((matchingLink) => {
+            matchingLink.classList.add("active");
+          });
       } else {
         link.classList.remove("active");
       }
@@ -131,14 +189,13 @@ function setActiveNavLink() {
       console.error("Kļūda apstrādājot linku:", link, error);
     }
   });
-} 
-  
-  // Izsaucam sākotnēji, kad lapa ielādējas
-document.addEventListener('DOMContentLoaded', setActiveNavLink);
+}
+
+// Izsaucam sākotnēji, kad lapa ielādējas
+document.addEventListener("DOMContentLoaded", setActiveNavLink);
 
 // Pievienojam klausītāju enkura maiņai (hash izmaiņām)
-window.addEventListener('hashchange', setActiveNavLink);
-
+window.addEventListener("hashchange", setActiveNavLink);
 
 // labajā apakšējā ekrāna malā parāda ekrāna izmēru, lai vieglāk izsekot bootstrap izmēriem
 function getBootstrapBreakpoint() {
