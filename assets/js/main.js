@@ -44,15 +44,12 @@ document.addEventListener("DOMContentLoaded", loadHeaderAndFooter);
 }
  */
 
-// v2
+// v3
 function adjustPaths() {
   const currentPath = window.location.pathname;
-
-  // Pārbauda, vai esam GitHub Pages apakšmapē
   const isGitHubPages = window.location.hostname === "eamon9.github.io";
   const isGranniesSubfolder = currentPath.includes("/grannies/");
 
-  // Iestata bāzes ceļu attēliem
   let basePath = "./";
   if (isGitHubPages && isGranniesSubfolder) {
     basePath = "/grannies/";
@@ -60,16 +57,17 @@ function adjustPaths() {
     basePath = "../";
   }
 
-  // Pielāgo attēlu ceļus
+  console.log("Adjusting paths with basePath:", basePath); // Pārbaude
+
   document.querySelectorAll("img").forEach((img) => {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http")) {
       img.src =
         basePath + src.replace(/^(\.\/)?assets\/images\//, "assets/images/");
+      console.log("Updated img src to:", img.src); // Pārbaude
     }
   });
 
-  // Pielāgo saišu ceļus
   document.querySelectorAll("a").forEach((link) => {
     let href = link.getAttribute("href");
     if (href && !href.startsWith("http") && !href.startsWith("#")) {
@@ -81,6 +79,7 @@ function adjustPaths() {
     }
   });
 }
+
 
 // Pārliecinies, ka skripts izpildās pēc DOM ielādes
 document.addEventListener("DOMContentLoaded", adjustPaths);
