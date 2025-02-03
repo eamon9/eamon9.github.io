@@ -44,25 +44,16 @@ document.addEventListener("DOMContentLoaded", adjustPaths);
 } */
 
 function getPath(file) {
+  const isGitHubPages = window.location.hostname === "eamon9.github.io";
+  const basePath = isGitHubPages ? "/grannies/" : "/";
+
+  // Pārbauda, vai atrodamies apakšmapē
+  const depth = window.location.pathname.split("/").filter(Boolean).length;
+
   let prefix = "";
-
-  // Pārbauda, vai esam GitHub Pages (URL satur '/grannies')
-  if (
-    window.location.hostname === "eamon9.github.io" ||
-    window.location.pathname.includes("/grannies/")
-  ) {
-    prefix = "/grannies/"; // GitHub Pages apakšmape
-  }
-
-  // Ja esam lokāli, pārbaudām ceļa dziļumu
-  if (
-    window.location.hostname === "localhost" ||
-    window.location.pathname.startsWith("/")
-  ) {
-    const depth = window.location.pathname.split("/").length - 2; // Aprēķina dziļumu
-    for (let i = 0; i < depth; i++) {
-      prefix += "../"; // Pievieno atbilstošo ../, lai atgrieztos uz augšu
-    }
+  if (!isGitHubPages) {
+    // Ja strādājam lokāli, atgriežamies atkarībā no direktorijas dziļuma
+    prefix = "../".repeat(depth - 1);
   }
 
   return `${prefix}components/${file}`;
