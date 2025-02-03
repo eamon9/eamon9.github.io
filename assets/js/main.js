@@ -1,4 +1,4 @@
-import { initFormValidation } from "./formValidation.js";
+import {initFormValidation} from "./formValidation.js";
 
 function loadHeaderAndFooter() {
   fetch("../components/header.html")
@@ -44,12 +44,15 @@ document.addEventListener("DOMContentLoaded", loadHeaderAndFooter);
 }
  */
 
-// v3
+// v2
 function adjustPaths() {
   const currentPath = window.location.pathname;
+
+  // Pārbauda, vai esam GitHub Pages apakšmapē
   const isGitHubPages = window.location.hostname === "eamon9.github.io";
   const isGranniesSubfolder = currentPath.includes("/grannies/");
 
+  // Iestata bāzes ceļu attēliem
   let basePath = "./";
   if (isGitHubPages && isGranniesSubfolder) {
     basePath = "/grannies/";
@@ -59,6 +62,7 @@ function adjustPaths() {
 
   console.log("Adjusting paths with basePath:", basePath); // Pārbaude
 
+  // Pielāgo attēlu ceļus
   document.querySelectorAll("img").forEach((img) => {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http")) {
@@ -68,6 +72,7 @@ function adjustPaths() {
     }
   });
 
+  // Pielāgo saišu ceļus
   document.querySelectorAll("a").forEach((link) => {
     let href = link.getAttribute("href");
     if (href && !href.startsWith("http") && !href.startsWith("#")) {
@@ -80,10 +85,8 @@ function adjustPaths() {
   });
 }
 
-
 // Pārliecinies, ka skripts izpildās pēc DOM ielādes
 document.addEventListener("DOMContentLoaded", adjustPaths);
-
 
 /* function getPath(file) {
   // Pārbauda, vai pašreizējā lapa atrodas saknes direktorijā vai apakšmapēs
@@ -114,7 +117,6 @@ function getPath(file) {
 
   return `${prefix}components/${file}`;
 }
-
 
 async function loadComponent(id, file) {
   try {
