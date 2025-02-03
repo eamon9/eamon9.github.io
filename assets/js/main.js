@@ -48,17 +48,17 @@ function adjustPaths() {
   // Iestata bāzes ceļu attēliem
   let basePath = "./";
   if (isGitHubPages && isGranniesSubfolder) {
-    basePath = "/grannies/";
+    basePath = "/grannies/"; // Ja esam /grannies/ apakšmapē, pievieno šo priekš attēliem
   } else if (currentPath.includes("/pages/")) {
-    basePath = "../";
+    basePath = "../"; // Ja esam /pages/ apakšmapē
   }
 
   // Pielāgo attēlu ceļus
   document.querySelectorAll("img").forEach((img) => {
     const src = img.getAttribute("src");
-    if (src && !src.startsWith("http")) {
-      img.src =
-        basePath + src.replace(/^(\.\/)?assets\/images\//, "assets/images/");
+    if (src && !src.startsWith("http") && !src.startsWith("/")) {
+      // Pārbaudām, vai src nav absolūts ceļš
+      img.src = basePath + "assets/images/" + src; // Pieņemam, ka ceļš ir tikai faila nosaukums
     }
   });
 
