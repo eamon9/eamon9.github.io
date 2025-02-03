@@ -1,64 +1,9 @@
 import {initFormValidation} from "./formValidation.js";
 
-/* function adjustPaths() {
-  // Pārbauda, vai mēs esam GitHub Pages vidē
-  const isGitHubPages = window.location.hostname.includes("github.io");
-
-  // Ja jā, pievieno repozitorija nosaukumu ceļiem
-  if (isGitHubPages) {
-    const repoName = window.location.pathname.split("/")[1]; // Saņem repozitorija nosaukumu
-    const allLinks = document.querySelectorAll("a, img, link, script"); // Pārbauda visus saites, attēlus, stilu un JS failus
-
-    allLinks.forEach((link) => {
-      const currentHref = link.getAttribute("href") || link.getAttribute("src");
-
-      if (currentHref && !currentHref.startsWith("http")) {
-        // Pārliecināmies, ka tas ir relatīvs ceļš
-        // Ja saite ir uz lapu vai resursu, pielāgo ceļu, pievienojot repozitorija nosaukumu
-        link.setAttribute(
-          "href",
-          currentHref.startsWith("/")
-            ? `/${repoName}${currentHref}`
-            : `/${repoName}/${currentHref}`
-        );
-
-        link.setAttribute(
-          "src",
-          currentHref.startsWith("/")
-            ? `/${repoName}${currentHref}`
-            : `/${repoName}/${currentHref}`
-        );
-      }
-    });
-  }
-}
-
-// Izsauc šo funkciju, kad lapa tiek ielādēta
-document.addEventListener("DOMContentLoaded", adjustPaths);
- */
-
-/* function getPath(file) {
-  const isGitHubPages = window.location.hostname.includes("github.io");
-  const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
-
+function getPath(file) {
+  // Pārbauda, vai pašreizējā lapa atrodas saknes direktorijā vai apakšmapēs
   const depth = window.location.pathname.split("/").length - 2;
-  let prefix = "";
 
-  // Ja strādā uz GitHub Pages, pievieno repozitorija nosaukumu ceļam
-  if (isGitHubPages) {
-    prefix = `/${repoName}/`;
-  } else {
-    // Ja strādā lokāli, aprēķina ceļu balstoties uz mapju dziļumu
-    for (let i = 0; i < depth; i++) {
-      prefix += "../";
-    }
-  }
-
-  return `${prefix}components/${file}`;
-} */
-
-/* function getPath(file) {
-  const depth = window.location.pathname.split("/").length - 2;
   let prefix = "";
 
   // Ja lapa ir apakšmapēs, pievieno ../ atkarībā no dziļuma
@@ -67,59 +12,9 @@ document.addEventListener("DOMContentLoaded", adjustPaths);
   }
 
   return `${prefix}components/${file}`;
-} */
-
-function getPath(file) {
-  const isGitHubPages = window.location.hostname.includes("github.io");
-  const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
-
-  let prefix = "";
-
-  // Ja esam GitHub Pages, pievieno repozitorija nosaukumu ceļam
-  if (isGitHubPages) {
-    prefix = `/${repoName}/`;
-  }
-
-  // Ja ceļš sākas ar /pages, mēs dodam ".." (augstāk par /pages) pirms components
-  if (window.location.pathname.includes("/pages/")) {
-    return `${prefix}../components/${file}`;
-  } else {
-    // Ceļš uz komponentiem no root
-    return `${prefix}components/${file}`;
-  }
 }
 
-const isGitHubPages = window.location.hostname === "eamon9.github.io";
-
-const basePath = isGitHubPages ? "/grannies/" : "/"; // Maina ceļu atkarībā no vides
-
-// Funkcija, kas ielādē komponentes
-function loadComponent(componentName) {
-  const filePath = `${basePath}${componentName}`;
-  fetch(filePath)
-    .then((response) => response.text())
-    .then((data) => {
-      document.querySelector(`#${componentName}`).innerHTML = data;
-    })
-    .catch((error) => console.error("Neizdevās ielādēt:", error));
-}
-
-
-
-// Funkcija ielādēt komponentes
-/* async function loadComponent(id, file) {
-  try {
-    const path = getPath(file); // Iegūstam ceļu uz komponentu
-    const response = await fetch(path); // Pārliecināmies, ka ceļš ir pareizs
-    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
-    document.getElementById(id).innerHTML = await response.text();
-  } catch (error) {
-    console.error(error);
-  }
-} */
-
-
-/* async function loadComponent(id, file) {
+async function loadComponent(id, file) {
   try {
     const response = await fetch(getPath(file));
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
@@ -127,33 +22,7 @@ function loadComponent(componentName) {
   } catch (error) {
     console.error(error);
   }
-} */
-
-/* async function loadComponent(id, file) {
-  try {
-    // Pārbauda, vai mēs esam GitHub Pages vidē
-    const isGitHubPages = window.location.hostname.includes("github.io");
-
-    let filePath = getPath(file);
-    console.log(`Ceļš uz failu: ${filePath}`);
-
-    if (isGitHubPages) {
-      // Ja esam GitHub Pages, pievieno repozitorija nosaukumu ceļam
-      const repoName = window.location.pathname.split("/")[1]; // Saņem repozitorija nosaukumu
-      filePath = `/grannies/components/${file}`; // Pielāgo ceļu, pievienojot repozitorija nosaukumu
-    } else {
-      // Ja esam lokāli, izmanto relatīvo ceļu
-      filePath = `components/${file}`;
-    }
-
-    const response = await fetch(filePath); // Veic pieprasījumu uz pielāgoto ceļu
-    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
-    document.getElementById(id).innerHTML = await response.text();
-  } catch (error) {
-    console.error(error);
-  }
 }
- */
 
 document.addEventListener("DOMContentLoaded", async function () {
   await loadComponent("header", "header.html");
@@ -221,13 +90,12 @@ function initializeDropdowns() {
   }
 }
 
+
 // Funkcija, lai pārvaldītu aktīvo navigācijas saiti (iekļaujot footer sadaļu)
 function setActiveNavLink() {
-  const navLinks = document.querySelectorAll(
-    ".nav-link, .dropdown-item, footer a"
-  ); // Iekļauj arī footer linkus
+  const navLinks = document.querySelectorAll(".nav-link, .dropdown-item, footer a");  // Iekļauj arī footer linkus
   const currentPath = window.location.pathname + window.location.hash;
-  console.log("Pašreizējais ceļš:", currentPath); // Debugging
+  console.log("Pašreizējais ceļš:", currentPath);  // Debugging
 
   navLinks.forEach((link) => {
     try {
@@ -245,19 +113,17 @@ function setActiveNavLink() {
         // Ja aktīvais links ir dropdown-item, pievieno 'active' arī dropdown-toggle
         const parentDropdown = link.closest(".dropdown");
         if (parentDropdown) {
-          const dropdownToggle =
-            parentDropdown.querySelector(".dropdown-toggle");
+          const dropdownToggle = parentDropdown.querySelector(".dropdown-toggle");
           if (dropdownToggle) {
             dropdownToggle.classList.add("active");
           }
         }
 
         // Papildus - Atrodam visus linkus ar šo pašu href un pievienojam tiem 'active' klasi
-        document
-          .querySelectorAll(`a[href='${link.href}']`)
-          .forEach((matchingLink) => {
-            matchingLink.classList.add("active");
-          });
+        document.querySelectorAll(`a[href='${link.href}']`).forEach((matchingLink) => {
+          matchingLink.classList.add("active");
+        });
+
       } else {
         link.classList.remove("active");
       }
@@ -265,13 +131,14 @@ function setActiveNavLink() {
       console.error("Kļūda apstrādājot linku:", link, error);
     }
   });
-}
-
-// Izsaucam sākotnēji, kad lapa ielādējas
-document.addEventListener("DOMContentLoaded", setActiveNavLink);
+} 
+  
+  // Izsaucam sākotnēji, kad lapa ielādējas
+document.addEventListener('DOMContentLoaded', setActiveNavLink);
 
 // Pievienojam klausītāju enkura maiņai (hash izmaiņām)
-window.addEventListener("hashchange", setActiveNavLink);
+window.addEventListener('hashchange', setActiveNavLink);
+
 
 // labajā apakšējā ekrāna malā parāda ekrāna izmēru, lai vieglāk izsekot bootstrap izmēriem
 function getBootstrapBreakpoint() {
