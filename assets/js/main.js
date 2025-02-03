@@ -89,10 +89,25 @@ function getPath(file) {
   }
 }
 
+const isGitHubPages = window.location.hostname === "eamon9.github.io";
+
+const basePath = isGitHubPages ? "/grannies/" : "/"; // Maina ceļu atkarībā no vides
+
+// Funkcija, kas ielādē komponentes
+function loadComponent(componentName) {
+  const filePath = `${basePath}${componentName}`;
+  fetch(filePath)
+    .then((response) => response.text())
+    .then((data) => {
+      document.querySelector(`#${componentName}`).innerHTML = data;
+    })
+    .catch((error) => console.error("Neizdevās ielādēt:", error));
+}
+
 
 
 // Funkcija ielādēt komponentes
-async function loadComponent(id, file) {
+/* async function loadComponent(id, file) {
   try {
     const path = getPath(file); // Iegūstam ceļu uz komponentu
     const response = await fetch(path); // Pārliecināmies, ka ceļš ir pareizs
@@ -101,7 +116,7 @@ async function loadComponent(id, file) {
   } catch (error) {
     console.error(error);
   }
-}
+} */
 
 
 /* async function loadComponent(id, file) {
