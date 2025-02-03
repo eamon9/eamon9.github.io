@@ -39,7 +39,7 @@ function adjustPaths() {
 }
 
 // Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
-function getPath(file) {
+/* function getPath(file) {
   const isGitHubPages = window.location.hostname === "eamon9.github.io";
   const basePath = isGitHubPages ? "/grannies/" : "/";
 
@@ -52,9 +52,26 @@ function getPath(file) {
   }
 
   return `${prefix}components/${file}`;
+} */
+
+function getPath(file) {
+  const isGitHubPages = window.location.hostname === "eamon9.github.io";
+  const basePath = isGitHubPages ? "/grannies/" : "/";
+
+  return `${basePath}components/${file}`;
 }
 
 // Funkcija, lai ielādētu komponentus (header un footer)
+/* async function loadComponent(id, file) {
+  try {
+    const response = await fetch(getPath(file));
+    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
+    document.getElementById(id).innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
+  }
+} */
+
 async function loadComponent(id, file) {
   try {
     const response = await fetch(getPath(file));
