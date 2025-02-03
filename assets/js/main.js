@@ -1,5 +1,42 @@
 import {initFormValidation} from "./formValidation.js";
 
+function adjustPaths() {
+  // Pārbauda, vai mēs esam GitHub Pages vidē
+  const isGitHubPages = window.location.hostname.includes("github.io");
+
+  // Ja jā, pievieno repozitorija nosaukumu ceļiem
+  if (isGitHubPages) {
+    const repoName = window.location.pathname.split("/")[1]; // Saņem repozitorija nosaukumu
+    const allLinks = document.querySelectorAll("a, img, link, script"); // Pārbauda visus saites, attēlus, stilu un JS failus
+
+    allLinks.forEach((link) => {
+      const currentHref = link.getAttribute("href") || link.getAttribute("src");
+
+      if (currentHref && !currentHref.startsWith("http")) {
+        // Pārliecināmies, ka tas ir relatīvs ceļš
+        // Ja saite ir uz lapu vai resursu, pielāgo ceļu, pievienojot repozitorija nosaukumu
+        link.setAttribute(
+          "href",
+          currentHref.startsWith("/")
+            ? `/${repoName}${currentHref}`
+            : `/${repoName}/${currentHref}`
+        );
+
+        link.setAttribute(
+          "src",
+          currentHref.startsWith("/")
+            ? `/${repoName}${currentHref}`
+            : `/${repoName}/${currentHref}`
+        );
+      }
+    });
+  }
+}
+
+// Izsauc šo funkciju, kad lapa tiek ielādēta
+document.addEventListener("DOMContentLoaded", adjustPaths);
+
+
 function getPath(file) {
   const isGitHubPages = window.location.hostname.includes("github.io");
   const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
