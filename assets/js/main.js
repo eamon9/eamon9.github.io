@@ -1,41 +1,9 @@
 import {initFormValidation} from "./formValidation.js";
 
-// Funkcija attēlu un saišu ceļu pielāgošanai atkarībā no pašreizējās lapas
-/* function adjustPaths() {
-  const currentPath = window.location.pathname;
-
-  // Ja esam lapā, kas atrodas pages mapē, izmantojam ../ lai atgrieztos vienu līmeni augstāk
-  let basePath = currentPath.includes("/pages/") ? "../" : "./";
-
-  // Pielāgo attēlu ceļus
-  document.querySelectorAll("img").forEach((img) => {
-    const src = img.getAttribute("src");
-    if (src && !src.startsWith("http") && !src.startsWith("/")) {
-      img.src = basePath + src;
-    }
-  });
-
-  // Pielāgo saišu ceļus
-  document.querySelectorAll("a").forEach((link) => {
-    let href = link.getAttribute("href");
-    if (href && !href.startsWith("http") && !href.startsWith("#")) {
-      link.href = basePath + href;
-    }
-  });
-} */
-
-// Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
-function getPath(file) {
-  const isGitHubPages = window.location.hostname === "eamon9.github.io";
-  const basePath = "/";
-
-  return `${basePath}components/${file}`;
-}
-
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
   try {
-    const response = await fetch(getPath(file));
+    const response = await fetch(`/components/${file}`);
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
     document.getElementById(id).innerHTML = await response.text();
   } catch (error) {
@@ -144,12 +112,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   await loadComponent("header", "header.html");
   await loadComponent("footer", "footer.html");
 
-  setActiveNavLink();
-
   window.addEventListener("load", updateScreenSize);
   window.addEventListener("resize", updateScreenSize);
 
-  //adjustPaths();
+  setActiveNavLink();
   initializeDropdowns();
   initFormValidation();
 });
@@ -171,6 +137,3 @@ function updateScreenSize() {
     breakpointElement.textContent = getBootstrapBreakpoint();
   }
 }
-
-// Pārliecinies, ka skripts izpildās pēc DOM ielādes
-/* document.addEventListener("DOMContentLoaded", adjustPaths); */
