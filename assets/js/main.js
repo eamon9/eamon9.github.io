@@ -1,52 +1,7 @@
 import {initFormValidation} from "./formValidation.js";
 
-function loadHeaderAndFooter() {
-  fetch("../components/header.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("header").innerHTML = data;
-      adjustPaths(); // Izsauc pēc header ielādes
-    });
-
-  fetch("../components/footer.html")
-    .then((response) => response.text())
-    .then((data) => {
-      document.getElementById("footer").innerHTML = data;
-      adjustPaths(); // Izsauc pēc footer ielādes
-    });
-}
-
-document.addEventListener("DOMContentLoaded", loadHeaderAndFooter);
-
-// v1
+// Funkcija attēlu un saišu ceļu pielāgošanai atkarībā no pašreizējās lapas
 function adjustPaths() {
-  const currentPath = window.location.pathname;
-
-  // Ja atrodamies apakšmapē (piemēram, /pages/about-us.html)
-  const prefix = currentPath.includes("/pages/") ? "../" : "./";
-
-  // Pielāgo attēlu ceļus
-  document.querySelectorAll("img").forEach((img) => {
-    if (img.src.includes("assets/images/")) {
-      img.src = img.src.replace("assets/images/", `${prefix}assets/images/`);
-    }
-  });
-
-  // Pielāgo saišu ceļus
-  document.querySelectorAll("a").forEach((link) => {
-    let href = link.getAttribute("href");
-
-    if (href && href.endsWith("index.html")) {
-      link.href = prefix + "index.html";
-    } else if (href && href.startsWith("pages/")) {
-      link.href = prefix + href;
-    }
-  });
-}
-
-
-// v2
-/* function adjustPaths() {
   const currentPath = window.location.pathname;
 
   // Pārbauda, vai esam GitHub Pages apakšmapē
@@ -61,15 +16,12 @@ function adjustPaths() {
     basePath = "../";
   }
 
-  console.log("Adjusting paths with basePath:", basePath); // Pārbaude
-
   // Pielāgo attēlu ceļus
   document.querySelectorAll("img").forEach((img) => {
     const src = img.getAttribute("src");
     if (src && !src.startsWith("http")) {
       img.src =
         basePath + src.replace(/^(\.\/)?assets\/images\//, "assets/images/");
-      console.log("Updated img src to:", img.src); // Pārbaude
     }
   });
 
@@ -85,34 +37,15 @@ function adjustPaths() {
     }
   });
 }
- */
 
-
-// Pārliecinies, ka skripts izpildās pēc DOM ielādes
-document.addEventListener("DOMContentLoaded", adjustPaths);
-
-/* function getPath(file) {
-  // Pārbauda, vai pašreizējā lapa atrodas saknes direktorijā vai apakšmapēs
-  const depth = window.location.pathname.split("/").length - 2;
-
-  let prefix = "";
-
-  // Ja lapa ir apakšmapēs, pievieno ../ atkarībā no dziļuma
-  for (let i = 0; i < depth; i++) {
-    prefix += "../";
-  }
-
-  return `${prefix}components/${file}`;
-} */
-
+// Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
 function getPath(file) {
   const isGitHubPages = window.location.hostname === "eamon9.github.io";
   const basePath = isGitHubPages ? "/grannies/" : "/";
 
-  // Pārbauda, vai atrodamies apakšmapē
   const depth = window.location.pathname.split("/").filter(Boolean).length;
-
   let prefix = "";
+
   if (!isGitHubPages) {
     // Ja strādājam lokāli, atgriežamies atkarībā no direktorijas dziļuma
     prefix = "../".repeat(depth - 1);
@@ -121,6 +54,7 @@ function getPath(file) {
   return `${prefix}components/${file}`;
 }
 
+// Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
   try {
     const response = await fetch(getPath(file));
@@ -130,19 +64,6 @@ async function loadComponent(id, file) {
     console.error(error);
   }
 }
-
-document.addEventListener("DOMContentLoaded", async function () {
-  await loadComponent("header", "header.html");
-  await loadComponent("footer", "footer.html");
-
-  setActiveNavLink();
-
-  window.addEventListener("load", updateScreenSize);
-  window.addEventListener("resize", updateScreenSize);
-
-  initializeDropdowns();
-  initFormValidation();
-});
 
 // Funkcija dropdown loģikas inicializācijai
 function initializeDropdowns() {
@@ -167,10 +88,8 @@ function initializeDropdowns() {
 
       // Klikšķis uz dropdown nosaukuma, lai pārietu uz attiecīgo saiti
       toggle.addEventListener("click", function (event) {
-        // Pārtrauc noklusēto darbību, ja izvēlne tiek atvērta vai aizvērta
         event.preventDefault();
 
-        // Ja linka adrese ir norādīta tieši uz nosaukuma
         let link = toggle.getAttribute("href");
         if (link) {
           window.location.href = link; // Pāriet uz saiti
@@ -203,7 +122,6 @@ function setActiveNavLink() {
     ".nav-link, .dropdown-item, footer a"
   ); // Iekļauj arī footer linkus
   const currentPath = window.location.pathname + window.location.hash;
-  console.log("Pašreizējais ceļš:", currentPath); // Debugging
 
   navLinks.forEach((link) => {
     try {
@@ -244,10 +162,18 @@ function setActiveNavLink() {
 }
 
 // Izsaucam sākotnēji, kad lapa ielādējas
-document.addEventListener("DOMContentLoaded", setActiveNavLink);
+document.addEventListener("DOMContentLoaded", async function () {
+  await loadComponent("header", "header.html");
+  await loadComponent("footer", "footer.html");
 
-// Pievienojam klausītāju enkura maiņai (hash izmaiņām)
-window.addEventListener("hashchange", setActiveNavLink);
+  setActiveNavLink();
+
+  window.addEventListener("load", updateScreenSize);
+  window.addEventListener("resize", updateScreenSize);
+
+  initializeDropdowns();
+  initFormValidation();
+});
 
 // labajā apakšējā ekrāna malā parāda ekrāna izmēru, lai vieglāk izsekot bootstrap izmēriem
 function getBootstrapBreakpoint() {
@@ -266,3 +192,6 @@ function updateScreenSize() {
     breakpointElement.textContent = getBootstrapBreakpoint();
   }
 }
+
+// Pārliecinies, ka skripts izpildās pēc DOM ielādes
+document.addEventListener("DOMContentLoaded", adjustPaths);
