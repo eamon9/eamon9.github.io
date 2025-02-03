@@ -27,7 +27,7 @@ import {initFormValidation} from "./formValidation.js";
 // Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
 function getPath(file) {
   const isGitHubPages = window.location.hostname === "eamon9.github.io";
-  const basePath = isGitHubPages ? "/grannies-club/" : "/";
+  const basePath = "/";
 
   return `${basePath}components/${file}`;
 }
