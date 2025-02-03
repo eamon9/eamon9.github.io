@@ -18,7 +18,8 @@ function loadHeaderAndFooter() {
 
 document.addEventListener("DOMContentLoaded", loadHeaderAndFooter);
 
-/* function adjustPaths() {
+// v1
+function adjustPaths() {
   const currentPath = window.location.pathname;
 
   // Ja atrodamies apakšmapē (piemēram, /pages/about-us.html)
@@ -42,10 +43,10 @@ document.addEventListener("DOMContentLoaded", loadHeaderAndFooter);
     }
   });
 }
- */
+
 
 // v2
-function adjustPaths() {
+/* function adjustPaths() {
   const currentPath = window.location.pathname;
 
   // Pārbauda, vai esam GitHub Pages apakšmapē
@@ -84,6 +85,8 @@ function adjustPaths() {
     }
   });
 }
+ */
+
 
 // Pārliecinies, ka skripts izpildās pēc DOM ielādes
 document.addEventListener("DOMContentLoaded", adjustPaths);
