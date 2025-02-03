@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", adjustPaths);
   return `${prefix}components/${file}`;
 } */
 
-function getPath(file) {
+/* function getPath(file) {
   const depth = window.location.pathname.split("/").length - 2;
   let prefix = "";
 
@@ -67,7 +67,42 @@ function getPath(file) {
   }
 
   return `${prefix}components/${file}`;
+} */
+
+function getPath(file) {
+  const isGitHubPages = window.location.hostname.includes("github.io");
+  const repoName = isGitHubPages ? window.location.pathname.split("/")[1] : "";
+
+  let prefix = "";
+
+  // Ja esam GitHub Pages, pievieno repozitorija nosaukumu ceļam
+  if (isGitHubPages) {
+    prefix = `/${repoName}/`;
+  }
+
+  // Ja ceļš sākas ar /pages, mēs dodam ".." (augstāk par /pages) pirms components
+  if (window.location.pathname.includes("/pages/")) {
+    return `${prefix}../components/${file}`;
+  } else {
+    // Ceļš uz komponentiem no root
+    return `${prefix}components/${file}`;
+  }
 }
+
+
+
+// Funkcija ielādēt komponentes
+async function loadComponent(id, file) {
+  try {
+    const path = getPath(file); // Iegūstam ceļu uz komponentu
+    const response = await fetch(path); // Pārliecināmies, ka ceļš ir pareizs
+    if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
+    document.getElementById(id).innerHTML = await response.text();
+  } catch (error) {
+    console.error(error);
+  }
+}
+
 
 /* async function loadComponent(id, file) {
   try {
@@ -79,15 +114,31 @@ function getPath(file) {
   }
 } */
 
-async function loadComponent(id, file) {
+/* async function loadComponent(id, file) {
   try {
-    const response = await fetch(`components/${file}`); // Norāda tiešo ceļu uz komponentiem
+    // Pārbauda, vai mēs esam GitHub Pages vidē
+    const isGitHubPages = window.location.hostname.includes("github.io");
+
+    let filePath = getPath(file);
+    console.log(`Ceļš uz failu: ${filePath}`);
+
+    if (isGitHubPages) {
+      // Ja esam GitHub Pages, pievieno repozitorija nosaukumu ceļam
+      const repoName = window.location.pathname.split("/")[1]; // Saņem repozitorija nosaukumu
+      filePath = `/grannies/components/${file}`; // Pielāgo ceļu, pievienojot repozitorija nosaukumu
+    } else {
+      // Ja esam lokāli, izmanto relatīvo ceļu
+      filePath = `components/${file}`;
+    }
+
+    const response = await fetch(filePath); // Veic pieprasījumu uz pielāgoto ceļu
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
     document.getElementById(id).innerHTML = await response.text();
   } catch (error) {
     console.error(error);
   }
 }
+ */
 
 document.addEventListener("DOMContentLoaded", async function () {
   await loadComponent("header", "header.html");
