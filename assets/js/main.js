@@ -1,10 +1,10 @@
 import {initFormValidation} from "./formValidation.js";
 
 // Funkcija attēlu un saišu ceļu pielāgošanai atkarībā no pašreizējās lapas
-function adjustPaths() {
+/* function adjustPaths() {
   const currentPath = window.location.pathname;
 
-  // Ja esam lapā, kas atrodas `pages` mapē, izmantojam ../ lai atgrieztos vienu līmeni augstāk
+  // Ja esam lapā, kas atrodas pages mapē, izmantojam ../ lai atgrieztos vienu līmeni augstāk
   let basePath = currentPath.includes("/pages/") ? "../" : "./";
 
   // Pielāgo attēlu ceļus
@@ -22,11 +22,14 @@ function adjustPaths() {
       link.href = basePath + href;
     }
   });
-}
+} */
 
 // Funkcija, lai iegūtu pareizu ceļu, ņemot vērā dziļumu un GitHub Pages apakšmapi
 function getPath(file) {
-  return `components/${file}`;
+  const isGitHubPages = window.location.hostname === "eamon9.github.io";
+  const basePath = isGitHubPages ? "/grannies-club/" : "/";
+
+  return `${basePath}components/${file}`;
 }
 
 // Funkcija, lai ielādētu komponentus (header un footer)
@@ -146,7 +149,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   window.addEventListener("load", updateScreenSize);
   window.addEventListener("resize", updateScreenSize);
 
-  adjustPaths();
+  //adjustPaths();
   initializeDropdowns();
   initFormValidation();
 });
@@ -170,4 +173,4 @@ function updateScreenSize() {
 }
 
 // Pārliecinies, ka skripts izpildās pēc DOM ielādes
-document.addEventListener("DOMContentLoaded", adjustPaths);
+/* document.addEventListener("DOMContentLoaded", adjustPaths); */
