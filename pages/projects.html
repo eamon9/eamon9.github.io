@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en" data-bs-theme="light">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vecmāmiņas.lv</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="../assets/css/bootstrap.css">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <div id="header"></div>
+
+  <main class="container">
+
+    <!--^ Projekti, Main bilde, apakš navigācijas josla -->
+    <div class="mb-5">
+      <h1>Projekti</h1>
+
+      <nav class="navbar navbar-expand-lg bg-body-tertiary rounded" aria-label="Twelfth navbar example">
+        <div class="container-fluid">
+          <div class="navbar-collapse justify-content-md-center" id="navbarsExample10">
+            <ul class="navbar-nav">
+
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/projects.html#realized">
+                  Realizēti</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="../pages/projects.html#current">
+                  Aktuāli</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!--^ Realizētie Projekti secība sākot ar jaunākajiem, beidzot ar vecākajiem -->
+    <div class="mb-5" id="realized">
+      <h1>Realizētie Projekti</h1>
+
+      <div class="container my-4">
+        <label for="sortOptions" class="form-label"><strong>Kārtot projektus pēc:</strong></label>
+        <select id="sortOptions" class="form-select w-auto">
+          <option value="date-desc">Jaunākie projekti</option>
+          <option value="date-asc">Vecākie projekti</option>
+          <option value="name-asc">Nosaukums (A-Z)</option>
+          <option value="name-desc">Nosaukums (Z-A)</option>
+        </select>
+      </div>
+
+
+      <div class="container my-5" id="projectsContainer">
+        <div class="accordion" id="projectAccordion">
+
+
+
+          <!-- Projekts 1 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA2 projekts TETE" data-date="2024-01-01">
+            <h2 class="accordion-header" id="heading1">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                Erasmus Plus KA2 projekts TETE
+              </button>
+            </h2>
+            <div id="collapse1" class="accordion-collapse collapse" aria-labelledby="heading1"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                <strong>Teaching English to Elderly</strong><br>
+                Projekta Nr.: 2023-2-LV01-KA210-ADU-000180419<br>
+                Laiks: 01/01/2024 - 31/08/2024<br>
+                Loma: Koordinatori
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 2 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA2 projekts GoGetAward" data-date="2020-07-01">
+            <h2 class="accordion-header" id="heading2">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                Erasmus Plus KA2 projekts GoGetAward
+              </button>
+            </h2>
+            <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                <strong>Darbojies, sasniedz mērķus, saņem atzinību: Kā veicināt senioru brīvprātīgo darbu</strong><br>
+                Projekta Nr.: 2020-1-LT01-KA204-077966<br>
+                Laiks: 07/2020 - 02/2022<br>
+                Loma: Partneri
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 3 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Kā saglabāt motivāciju'"
+            data-date="2021-11-01">
+            <h2 class="accordion-header" id="heading3">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                Erasmus Plus KA1 projekts “Kā saglabāt motivāciju”
+              </button>
+            </h2>
+            <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2021-1-LV01-KA122-ADU-000018305<br>
+                Laiks: 1/11/2021 - 1/11/2022
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 4 -->
+          <div class="accordion-item" data-name="Nordplus Adult projekts 'Senioru motivācija mācīties'"
+            data-date="2014-04-01">
+            <h2 class="accordion-header" id="heading4">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                Nordplus Adult projekts “Senioru motivācija mācīties”
+              </button>
+            </h2>
+            <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Laiks: 01/04/2014 - 30/09/2015
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 5 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Trešā paaudze – otrā iespēja'"
+            data-date="2014-08-01">
+            <h2 class="accordion-header" id="heading5">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                Erasmus Plus KA1 projekts “Trešā paaudze – otrā iespēja”
+              </button>
+            </h2>
+            <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2014-1LV01-KA104-0000502015.g.<br>
+                Laiks: 01/08/2014 - 30/07/2015
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 6 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Virzāmies uz priekšu'"
+            data-date="2017-09-01">
+            <h2 class="accordion-header" id="heading6">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                Erasmus Plus KA1 projekts “Virzāmies uz priekšu”
+              </button>
+            </h2>
+            <div id="collapse6" class="accordion-collapse collapse" aria-labelledby="heading6"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2017-1-LV01-KA104-035223<br>
+                Laiks: 01/09/2017 - 31/08/2018
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 7 -->
+          <div class="accordion-item"
+            data-name="Rīgas domes projekts (dienas nometne soc.riska ģimeņu bērniem) 'Ūdens rakstu radošās darbnīcas'"
+            data-date="2022-06-01">
+            <h2 class="accordion-header" id="heading7">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse7" aria-expanded="false" aria-controls="collapse7">
+                Rīgas domes projekts (dienas nometne soc.riska ģimeņu bērniem) “Ūdens rakstu radošās darbnīcas”
+              </button>
+            </h2>
+            <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2022-DIKS-22-756-lī<br>
+                Laiks: 15/06/2022 - 30/07/2022
+              </div>
+            </div>
+          </div>
+
+          <!-- Projekts 8 -->
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
+            <h2 class="accordion-header" id="heading8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                Erasmus Plus KA1 projekts “Stabilitāte”
+              </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2024-1-LV01-KA121-ADU-000204150<br>
+                Laiks: 01/06/2024 - 31/08/2025
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+
+    <!--^ Aktuālie -->
+    <div class="mb-5" id="current">
+      <h1>Aktuālie Projekti</h1>
+
+      <div class="container my-5" id="projectsContainer">
+        <div class="accordion" id="projectAccordion">
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
+            <h2 class="accordion-header" id="heading8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
+                Erasmus Plus KA1 projekts “Stabilitāte”
+              </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2024-1-LV01-KA121-ADU-000204150<br>
+                Laiks: 01/06/2024 - 31/08/2025
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <div id="footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="../assets/js/sortingFunctions.js" defer></script>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

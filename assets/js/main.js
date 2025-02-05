@@ -1,4 +1,5 @@
 import {initFormValidation} from "./formValidation.js";
+import {sortProjects} from "./sortingFunctions.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -137,3 +138,19 @@ function updateScreenSize() {
     breakpointElement.textContent = getBootstrapBreakpoint();
   }
 }
+
+// funkcija, kas ļauj lietotājam sakārtot projektus pēc vajadzības
+document.addEventListener("DOMContentLoaded", function () {
+  const sortSelect = document.getElementById("sortOptions");
+
+  // Uzliek noklusējuma vērtību "Jaunākie projekti"
+  sortSelect.value = "date-desc";
+
+  // Automātiski kārto pēc jaunākajiem projektiem, kad lapa ielādējas
+  sortProjects("date-desc");
+
+  // Klausās izmaiņas, ja lietotājs maina kārtošanas veidu
+  sortSelect.addEventListener("change", function () {
+    sortProjects(this.value);
+  });
+});
