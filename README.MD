@@ -39,4 +39,4 @@ next
 
 - Izveidot whatsapp ikonas ik pa laikam nomaiņu uz klausule un sms ikonām
 
-- 
+- "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
