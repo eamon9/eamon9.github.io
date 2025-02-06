@@ -1,5 +1,4 @@
 import {initFormValidation} from "./formValidation.js";
-import {sortProjects} from "./sortingFunctions.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -39,7 +38,18 @@ function initializeDropdowns() {
 
         let link = toggle.getAttribute("href");
         if (link) {
-          window.location.href = link; // Pāriet uz saiti
+          if (link.startsWith("#")) {
+            // Ja saite ir ID (iekšējā navigācija), ritinām līdz sadaļai
+            const target = document.querySelector(link);
+            if (target) {
+              setTimeout(() => {
+                target.scrollIntoView({behavior: "smooth"});
+              }, 500);
+            }
+          } else {
+            // Ja ir ārējā saite, pārejam uz to
+            window.location.href = link;
+          }
         } else {
           let isOpen = menu.classList.contains("show");
           closeAllDropdowns();
@@ -119,7 +129,16 @@ document.addEventListener("DOMContentLoaded", async function () {
   setActiveNavLink();
   initializeDropdowns();
   initFormValidation();
+
+  // Pēc lapas ielādes, ja URL ir #id, ritinām līdz attiecīgajai sadaļai
+  if (window.location.hash) {
+    const target = document.querySelector(window.location.hash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  }
 });
+
 
 // labajā apakšējā ekrāna malā parāda ekrāna izmēru, lai vieglāk izsekot bootstrap izmēriem
 function getBootstrapBreakpoint() {
@@ -138,19 +157,3 @@ function updateScreenSize() {
     breakpointElement.textContent = getBootstrapBreakpoint();
   }
 }
-
-// funkcija, kas ļauj lietotājam sakārtot projektus pēc vajadzības
-document.addEventListener("DOMContentLoaded", function () {
-  const sortSelect = document.getElementById("sortOptions");
-
-  // Uzliek noklusējuma vērtību "Jaunākie projekti"
-  sortSelect.value = "date-desc";
-
-  // Automātiski kārto pēc jaunākajiem projektiem, kad lapa ielādējas
-  sortProjects("date-desc");
-
-  // Klausās izmaiņas, ja lietotājs maina kārtošanas veidu
-  sortSelect.addEventListener("change", function () {
-    sortProjects(this.value);
-  });
-});

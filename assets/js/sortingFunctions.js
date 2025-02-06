@@ -26,3 +26,20 @@ export function sortProjects(sortBy) {
   const accordion = document.getElementById("projectAccordion");
   projects.forEach((project) => accordion.appendChild(project));
 }
+
+
+// funkcija, kas ļauj lietotājam sakārtot projektus pēc vajadzības
+document.addEventListener("DOMContentLoaded", function () {
+  const sortSelect = document.getElementById("sortOptions");
+
+  // Uzliek noklusējuma vērtību "Jaunākie projekti"
+  sortSelect.value = "date-desc";
+
+  // Automātiski kārto pēc jaunākajiem projektiem, kad lapa ielādējas
+  sortProjects("date-desc");
+
+  // Klausās izmaiņas, ja lietotājs maina kārtošanas veidu
+  sortSelect.addEventListener("change", function () {
+    sortProjects(this.value);
+  });
+});
