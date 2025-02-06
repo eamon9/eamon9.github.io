@@ -1,5 +1,5 @@
-import { initFormValidation } from "./formValidation.js";
-import { updateScreenSize } from "./temporaryFunctions.js"
+import {initFormValidation} from "./formValidation.js";
+import {updateScreenSize} from "./temporaryFunctions.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -59,6 +59,22 @@ function initializeDropdowns() {
             toggle.setAttribute("aria-expanded", "true");
           }
         }
+      });
+
+      // Pārbaude, vai ir pieejami dropdown-item elementi
+      let dropdownItems = dropdown.querySelectorAll(".dropdown-item");
+      console.log(`Dropdown items: ${dropdownItems.length}`); // Apskatīsim, vai mēs atradām itemus
+
+      dropdownItems.forEach(function (item) {
+        item.addEventListener("click", function () {
+          // Noņem 'active' klasi no visiem citiem itemiem
+          dropdownItems.forEach(function (i) {
+            i.classList.remove("active");
+          });
+
+          // Pievieno 'active' klasi noklikšķinātajam item
+          item.classList.add("active");
+        });
       });
     });
 
@@ -135,7 +151,7 @@ document.addEventListener("DOMContentLoaded", async function () {
   if (window.location.hash) {
     const target = document.querySelector(window.location.hash);
     if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+      target.scrollIntoView({behavior: "smooth"});
     }
   }
 });
