@@ -87,3 +87,10 @@ h1 {
     display: block;
   }
 }
+
+.cropped-img {
+    width: 100%;  /* Vai pielāgo pēc vajadzības */
+    height: 300px; /* Pielāgo, cik augstu vēlies redzēt */
+    object-fit: cover; /* Saglabā proporcijas un apgriež pārpalikumu */
+    object-position: center; /* Centrē attēlu */
+}
