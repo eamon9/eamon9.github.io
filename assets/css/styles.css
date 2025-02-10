@@ -54,12 +54,12 @@ h1 {
   }
 }
 
-.img-fluid {
+/* .img-fluid {
   width: 200%;
   height: 200%;
   overflow: hidden;
   object-position: top left;
-}
+} */
 
 .modal-xxl {
   --bs-modal-width: 60%;
@@ -77,6 +77,10 @@ h1 {
   z-index: 9999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-size: 1.5rem;
+}
+
+#scroll-to-top:hover {
+  cursor: pointer;
 }
 
 @media (max-width: 768px) {
