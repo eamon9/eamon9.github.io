@@ -15,7 +15,7 @@ next
 
 - Padomāt kā main lapā attēlot nesen pievienotos rakstus, vai vismaz tēmu, ko var uzspiest uzzināt vairāk vai lasīt sīkāk vai links uz konkrēto blog vietu...
 
-- Padomāt par lapas izkārtojumu, varbūt visi blog nosaukumi varētu būt kā link uz konkrētu vietu lapā ar konkrētu id,  ja uzspiež tur nokļust un var lasīt...
++ - Padomāt par lapas izkārtojumu, varbūt visi blog nosaukumi varētu būt kā link uz konkrētu vietu lapā ar konkrētu id,  ja uzspiež tur nokļust un var lasīt...
 
 * nākotnē jādomā par pogu, kas uzved pašā augšā, lai nav manuāli jāskrollē
 
@@ -35,13 +35,13 @@ next
 
 - Mājaslapā vajadzētu emebedot kādu video un vai bildes no facebook un instagram un dot iespēju sekot līdzi un iesaistīties
 
-- Aktualizēt dropdown menu lietas, kuras paliek, kuras ņemam ārā un kādas pievienojam
++ Aktualizēt dropdown menu lietas, kuras paliek, kuras ņemam ārā un kādas pievienojam
 
 - Izveidot whatsapp ikonas ik pa laikam nomaiņu uz klausule un sms ikonām
 
 - "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
 
-- <!-- ! -->Jāatrisina problēma ar dropdown, pirmo reizi izvēloties viss OK, bet ja vēlreiz atver to pašu dropdown un nospiež citu izvēli, tā neiekrāsojas kā "active" klase!
++ Jāatrisina problēma ar dropdown, pirmo reizi izvēloties viss OK, bet ja vēlreiz atver to pašu dropdown un nospiež citu izvēli, tā neiekrāsojas kā "active" klase!
 
 
 
