@@ -111,6 +111,36 @@ h1 {
   font-size: 1.5rem;
 }
 
+/* Contact section */
+
+#contact-section {
+  opacity: 0;
+  max-height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: opacity 1.5s ease, max-height 1.5s ease, visibility 0s linear 0.5s;
+}
+
+#mainLOGO:hover + #contact-section,
+#contact-section:hover {
+  opacity: 1;
+  max-height: 500px;
+  visibility: visible;
+  transition: opacity 0.5s ease, max-height 2.5s ease, visibility 0s linear 0s;
+}
+
+/* Main IMG scroll to first h1 elemnt */
+
+.main-img {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.main-img:hover {
+  transform: scale(1.05);
+}
+
+
 /* Author */
 
 .made-by {
