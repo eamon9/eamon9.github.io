@@ -37,13 +37,13 @@
             <ul class="navbar-nav">
 
               <li class="nav-item">
-                <a class="nav-link" href="../pages/projects.html#realized">
-                  Realizēti</a>
+                <a class="nav-link" href="../pages/projects.html#current">
+                  Aktuāli</a>
               </li>
 
               <li class="nav-item">
-                <a class="nav-link" href="../pages/projects.html#current">
-                  Aktuāli</a>
+                <a class="nav-link" href="../pages/projects.html#realized">
+                  Realizēti</a>
               </li>
 
             </ul>
@@ -52,11 +52,42 @@
       </nav>
     </div>
 
+    <!--^ Aktuālie -->
+    <div class="mb-5" id="current">
+      <h1>Aktuālie Projekti</h1>
+    
+      <div class="container my-5" id="currentProjectsContainer">
+        <div class="accordion" id="currentProjectAccordion">
+
+          <!--~ "Stabilitāte" -->
+          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
+            <h2 class="accordion-header" id="heading8">
+              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse8"
+                aria-expanded="false" aria-controls="collapse8">
+                Erasmus Plus KA1 projekts “Stabilitāte”
+              </button>
+            </h2>
+            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+              data-bs-parent="#projectAccordion">
+              <div class="accordion-body">
+                Projekta Nr.: 2024-1-LV01-KA121-ADU-000204150<br>
+                Laiks: 01/06/2024 - 31/08/2025
+              </div>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+
     <!--^ Realizētie Projekti secība sākot ar jaunākajiem, beidzot ar vecākajiem -->
     <div class="mb-5" id="realized">
 
       <h1>Realizētie Projekti</h1>
 
+      <!--^ Kārtot projektus pēc: -->
       <div class="container my-4">
         <label for="sortOptions" class="form-label"><strong>Kārtot projektus pēc:</strong></label>
         <select id="sortOptions" class="form-select w-auto">
@@ -67,11 +98,10 @@
         </select>
       </div>
 
-
       <div class="container my-5" id="projectsContainer">
         <div class="accordion" id="projectAccordion">
 
-          <!-- Projekts 1 -->
+          <!--~ "TETE" -->
           <div class="accordion-item" data-name="Erasmus Plus KA2 projekts TETE" data-date="2024-01-01">
             <h2 class="accordion-header" id="heading1">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -90,7 +120,7 @@
             </div>
           </div>
 
-          <!-- Projekts 2 -->
+          <!--~ "GoGetAward" -->
           <div class="accordion-item" data-name="Erasmus Plus KA2 projekts GoGetAward" data-date="2020-07-01">
             <h2 class="accordion-header" id="heading2">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -109,7 +139,7 @@
             </div>
           </div>
 
-          <!-- Projekts 3 -->
+          <!--~ "Kā saglabāt motivāciju" -->
           <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Kā saglabāt motivāciju'"
             data-date="2021-11-01">
             <h2 class="accordion-header" id="heading3">
@@ -127,7 +157,7 @@
             </div>
           </div>
 
-          <!-- Projekts 4 -->
+          <!--~ "Senioru motivācija mācīties" -->
           <div class="accordion-item" data-name="Nordplus Adult projekts 'Senioru motivācija mācīties'"
             data-date="2014-04-01">
             <h2 class="accordion-header" id="heading4">
@@ -144,7 +174,7 @@
             </div>
           </div>
 
-          <!-- Projekts 5 -->
+          <!--~ "Trešā paaudze - otrā iespēja" -->
           <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Trešā paaudze – otrā iespēja'"
             data-date="2014-08-01">
             <h2 class="accordion-header" id="heading5">
@@ -162,7 +192,7 @@
             </div>
           </div>
 
-          <!-- Projekts 6 -->
+          <!--~ "Virzāmies uz priekšu" -->
           <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Virzāmies uz priekšu'"
             data-date="2017-09-01">
             <h2 class="accordion-header" id="heading6">
@@ -180,7 +210,7 @@
             </div>
           </div>
 
-          <!-- Projekts 7 -->
+          <!--~ "Ūdens rakstu radošās darbnīcas" -->
           <div class="accordion-item"
             data-name="Rīgas domes projekts (dienas nometne soc.riska ģimeņu bērniem) 'Ūdens rakstu radošās darbnīcas'"
             data-date="2022-06-01">
@@ -199,8 +229,8 @@
             </div>
           </div>
 
-          <!-- Projekts 8 -->
-          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
+          <!--~ "[TAVS NOSAUKUMS]" -->
+          <!-- <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
             <h2 class="accordion-header" id="heading8">
               <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
@@ -214,40 +244,11 @@
                 Laiks: 01/06/2024 - 31/08/2025
               </div>
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
 
-
-
-
-
-    </div>
-
-    <!--^ Aktuālie -->
-    <div class="mb-5" id="current">
-      <h1>Aktuālie Projekti</h1>
-
-      <div class="container my-5" id="projectsContainer">
-        <div class="accordion" id="projectAccordion">
-          <div class="accordion-item" data-name="Erasmus Plus KA1 projekts 'Stabilitāte'" data-date="2024-06-01">
-            <h2 class="accordion-header" id="heading8">
-              <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapse8" aria-expanded="false" aria-controls="collapse8">
-                Erasmus Plus KA1 projekts “Stabilitāte”
-              </button>
-            </h2>
-            <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
-              data-bs-parent="#projectAccordion">
-              <div class="accordion-body">
-                Projekta Nr.: 2024-1-LV01-KA121-ADU-000204150<br>
-                Laiks: 01/06/2024 - 31/08/2025
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
 
   </main>
