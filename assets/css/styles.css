@@ -81,10 +81,10 @@ h1 {
 
 @media (max-width: 768px) {
   .custom-img {
-    max-width: 100%;  /* Lai nepārsniegtu vecāka platumu */
-    height: auto;     /* Saglabā proporcijas */
-    float: none;      /* Noņem peldošo efektu, ja nepieciešams */
-    margin: 0 auto;   /* Centrē attēlu, ja vēlies */
+    max-width: 100%;
+    height: auto;
+    float: none;
+    margin: 0 auto;
     display: block;
   }
 }
