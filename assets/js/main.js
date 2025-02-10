@@ -1,5 +1,5 @@
-import {initFormValidation} from "./formValidation.js";
-/* import {updateScreenSize} from "./temporaryFunctions.js"; */
+import { initFormValidation } from "./formValidation.js";
+import { scrollToTop } from "./additionalFunc.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -137,11 +137,15 @@ function setActiveNavLink() {
 
 // Izsaucam sākotnēji, kad lapa ielādējas
 document.addEventListener("DOMContentLoaded", async function () {
+  // Ielādējam header, footer komponentes
   await loadComponent("header", "header.html");
   await loadComponent("footer", "footer.html");
 
-  /* window.addEventListener("load", updateScreenSize);
-  window.addEventListener("resize", updateScreenSize); */
+  // Pievienojam scroll-to-top funkcionalitāti banerim
+  const banner = document.getElementById("scroll-to-top");
+  if (banner) {
+    banner.addEventListener("click", scrollToTop);
+  }
 
   setActiveNavLink();
   initializeDropdowns();
