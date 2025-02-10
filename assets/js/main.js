@@ -1,5 +1,5 @@
 import {initFormValidation} from "./formValidation.js";
-import {updateScreenSize} from "./temporaryFunctions.js";
+/* import {updateScreenSize} from "./temporaryFunctions.js"; */
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -140,8 +140,8 @@ document.addEventListener("DOMContentLoaded", async function () {
   await loadComponent("header", "header.html");
   await loadComponent("footer", "footer.html");
 
-  window.addEventListener("load", updateScreenSize);
-  window.addEventListener("resize", updateScreenSize);
+  /* window.addEventListener("load", updateScreenSize);
+  window.addEventListener("resize", updateScreenSize); */
 
   setActiveNavLink();
   initializeDropdowns();
