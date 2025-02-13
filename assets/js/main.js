@@ -1,5 +1,5 @@
-import { initFormValidation } from "./formValidation.js";
-import { scrollToTop } from "./additionalFunc.js";
+import {initFormValidation} from "./formValidation.js";
+import {scrollToTop} from "./additionalFunc.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -170,7 +170,7 @@ window.onload = function () {
 };
 
 // Attēlu karuselis ar aprakstiem
-const captions = [
+const captionsForTETE = [
   "'Teaching English to Elderly' (TETE) nodarbība",
   "'Teaching English to Elderly' (TETE) Rīgas grupa saņēmusi APLIECĪBAS  - projekts noslēdzies, bet mācīšanās turpināsies!",
   "Every word learned opens a new door!",
@@ -178,8 +178,31 @@ const captions = [
   "B-bas 'Vecmāmiņas.lv' Erasmus+ TETE noslēguma konferences dalībnieki 2024.gada vasarā.",
 ];
 
-// Izveidojam funkciju, kas maina tekstu atkarībā no attēla
-$("#galleryCarousel").on("slid.bs.carousel", function (event) {
-  const index = event.to; // Kārtējais attēla indeks
-  document.getElementById("carouselText").textContent = captions[index];
-});
+const captionsForFlexibli = [
+  "Draudzības vakars Islandē bija iespaidīgs – kursu dalībnieki no 9 valstīm",
+  "Draudzības vakars Islandē bija iespaidīgs – kursu dalībnieki no 9 valstīm",
+  "Kursi beigušies sertifikāti un dāvanas saņemtas – grupa no Latvijas",
+  "Nodarbība pie vienas no pasniedzējām - radoša, atraktīva! <br>Apguvām ļoti noderīgas metodes (gan bērnu, gan pieaugušo izglītošanas procesam).",
+];
+
+const captionsForInovation = [
+  "Ziedojums Ukrainai",
+  "Vēstures diena. Nodarbība un lekcija Valmieras muzejā - De Woldemer",
+  "Aptaujā piedalījās 48 respondenti.",
+  "Brīvprātīgo diena",
+  "Valodas diena",
+];
+
+// Vispārīga funkcija, kas maina tekstu atkarībā no attēla
+function changeCarouselText(carouselId, captionsArray) {
+  $(`#${carouselId}`).on("slid.bs.carousel", function (event) {
+    const index = event.to;
+    document.getElementById(
+      carouselId.replace("galleryCarousel", "carouselText")
+    ).innerHTML = captionsArray[index];
+  });
+}
+
+changeCarouselText("galleryCarouselTETE", captionsForTETE);
+changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
+changeCarouselText("galleryCarouselInovation", captionsForInovation);
