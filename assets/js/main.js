@@ -169,25 +169,17 @@ window.onload = function () {
   }
 };
 
-/* const mainImg = document.querySelector(".main-img");
-let lastScrollPosition = window.scrollY;
-let scrollThreshold = 100; // Attālums, kuram jāpārsniedz, lai notiktu pārvietošana
+// Attēlu karuselis ar aprakstiem
+const captions = [
+  "'Teaching English to Elderly' (TETE) nodarbība",
+  "'Teaching English to Elderly' (TETE) Rīgas grupa saņēmusi APLIECĪBAS  - projekts noslēdzies, bet mācīšanās turpināsies!",
+  "Every word learned opens a new door!",
+  "Pēc projekta darba grupas apspriedes ar Lietuvas partneriem skaistajā ēkā 'Ola Fondation'",
+  "B-bas 'Vecmāmiņas.lv' Erasmus+ TETE noslēguma konferences dalībnieki 2024.gada vasarā.",
+];
 
-mainImg.addEventListener("mouseover", function () {
-  // Pievieno peles kustības klausītāju
-  document.addEventListener("mousemove", function (e) {
-    // Pārbauda, vai pele pārvietojas uz leju un ir pārsniegusi slieksni
-    if (e.clientY > lastScrollPosition + scrollThreshold) {
-      // Ja jā, pārvieto lapu uz nākamo h1 elementu
-      const nextHeader = document.querySelector("h1"); // Pirmais h1 elements
-      nextHeader.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
-    // Atjaunina pēdējo peles pozīciju
-    lastScrollPosition = e.clientY;
-  });
+// Izveidojam funkciju, kas maina tekstu atkarībā no attēla
+$("#galleryCarousel").on("slid.bs.carousel", function (event) {
+  const index = event.to; // Kārtējais attēla indeks
+  document.getElementById("carouselText").textContent = captions[index];
 });
- */
-
