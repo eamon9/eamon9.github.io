@@ -129,7 +129,7 @@ h1 {
   transition: opacity 0.5s ease, max-height 2.5s ease, visibility 0s linear 0s;
 }
 
-/* Main IMG scroll to first h1 elemnt */
+/* Main IMG scroll to first h1 element */
 
 .main-img {
   cursor: pointer;
@@ -139,7 +139,6 @@ h1 {
 .main-img:hover {
   transform: scale(1.05);
 }
-
 
 /* Author */
 
