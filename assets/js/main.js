@@ -1,5 +1,5 @@
 import {initFormValidation} from "./formValidation.js";
-import {scrollToTop} from "./additionalFunc.js";
+import {scrollToTop, toggleScrollButton} from "./additionalFunc.js";
 
 // Funkcija, lai ielādētu komponentus (header un footer)
 async function loadComponent(id, file) {
@@ -202,6 +202,8 @@ function changeCarouselText(carouselId, captionsArray) {
     ).innerHTML = captionsArray[index];
   });
 }
+
+window.addEventListener("scroll", toggleScrollButton);
 
 changeCarouselText("galleryCarouselTETE", captionsForTETE);
 changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
