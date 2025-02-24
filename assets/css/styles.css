@@ -3,6 +3,10 @@ body {
   font-size: 18px;
 }
 
+body p {
+  font-size: 20px;
+}
+
 .nav-item {
   font-family: "PT Serif", sans-serif;
   font-weight: 700;
@@ -136,9 +140,9 @@ h1 {
   transition: transform 0.3s ease;
 }
 
-.main-img:hover {
+/* .main-img:hover {
   transform: scale(1.05);
-}
+} */
 
 /* Author */
 
