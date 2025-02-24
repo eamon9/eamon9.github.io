@@ -235,7 +235,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
               // Pāradresācija uz konkrētu lapu
               window.location.href =
-                "www.https://grannies.lv/pages/involved.html";
+                "https://grannies.lv/pages/involved.html";
             } else {
               alert("Radās kļūda. Lūdzu, mēģiniet vēlreiz.");
             }
