@@ -208,3 +208,45 @@ window.addEventListener("scroll", toggleScrollButton);
 changeCarouselText("galleryCarouselTETE", captionsForTETE);
 changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
 changeCarouselText("galleryCarouselInovation", captionsForInovation);
+
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.querySelector("form");
+
+  form.addEventListener(
+    "submit",
+    function (event) {
+      if (!form.checkValidity()) {
+        event.preventDefault(); // Neļauj nosūtīt formu
+        event.stopPropagation();
+      } else {
+        event.preventDefault(); // Aptur noklusējuma formu
+
+        const formData = new FormData(form);
+        fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {Accept: "application/json"},
+        })
+          .then((response) => {
+            if (response.ok) {
+              alert("Paldies! Jūsu anketa ir iesniegta.");
+              form.reset();
+              form.classList.remove("was-validated"); // Noņem validācijas statusu pēc iesniegšanas
+
+              // Pāradresācija uz konkrētu lapu
+              window.location.href =
+                "www.https://grannies.lv/pages/involved.html";
+            } else {
+              alert("Radās kļūda. Lūdzu, mēģiniet vēlreiz.");
+            }
+          })
+          .catch((error) => {
+            alert("Savienojuma kļūda. Mēģiniet vēlreiz.");
+          });
+      }
+
+      form.classList.add("was-validated"); // Pievieno Bootstrap validāciju
+    },
+    false
+  );
+});
