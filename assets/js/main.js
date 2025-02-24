@@ -171,11 +171,11 @@ window.onload = function () {
 
 // Attēlu karuselis ar aprakstiem
 const captionsForTETE = [
-  "'Teaching English to Elderly' (TETE) nodarbība",
-  "'Teaching English to Elderly' (TETE) Rīgas grupa saņēmusi APLIECĪBAS  - projekts noslēdzies, bet mācīšanās turpināsies!",
+  "<i>Teaching English to Elderly</i> (TETE) nodarbība",
+  "<i>Teaching English to Elderly</i> (TETE) Rīgas grupa saņēmusi APLIECĪBAS  - projekts noslēdzies, bet mācīšanās turpināsies!",
   "Every word learned opens a new door!",
-  "Pēc projekta darba grupas apspriedes ar Lietuvas partneriem skaistajā ēkā 'Ola Fondation'",
-  "B-bas 'Vecmāmiņas.lv' Erasmus+ TETE noslēguma konferences dalībnieki 2024.gada vasarā.",
+  "Pēc projekta darba grupas apspriedes ar Lietuvas partneriem skaistajā ēkā <i>Ola Fondation</i>",
+  "Biedrības <i>Vecmāmiņas.lv</i> Erasmus+ TETE noslēguma konferences dalībnieki 2024.gada vasarā.",
 ];
 
 const captionsForFlexibli = [
