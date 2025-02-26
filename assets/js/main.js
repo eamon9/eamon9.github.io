@@ -63,7 +63,6 @@ function initializeDropdowns() {
 
       // Pārbaude, vai ir pieejami dropdown-item elementi
       let dropdownItems = dropdown.querySelectorAll(".dropdown-item");
-      console.log(`Dropdown items: ${dropdownItems.length}`); // Apskatīsim, vai mēs atradām itemus
 
       dropdownItems.forEach(function (item) {
         item.addEventListener("click", function () {
@@ -210,43 +209,46 @@ changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
 changeCarouselText("galleryCarouselInovation", captionsForInovation);
 
 document.addEventListener("DOMContentLoaded", function () {
+  // Check if the form exists before adding the event listener
   const form = document.querySelector("form");
+  if (form) {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault(); // Neļauj nosūtīt formu
+          event.stopPropagation();
+        } else {
+          event.preventDefault(); // Aptur noklusējuma formu
 
-  form.addEventListener(
-    "submit",
-    function (event) {
-      if (!form.checkValidity()) {
-        event.preventDefault(); // Neļauj nosūtīt formu
-        event.stopPropagation();
-      } else {
-        event.preventDefault(); // Aptur noklusējuma formu
-
-        const formData = new FormData(form);
-        fetch(form.action, {
-          method: form.method,
-          body: formData,
-          headers: {Accept: "application/json"},
-        })
-          .then((response) => {
-            if (response.ok) {
-              alert("Paldies! Jūsu anketa ir iesniegta.");
-              form.reset();
-              form.classList.remove("was-validated"); // Noņem validācijas statusu pēc iesniegšanas
-
-              // Pāradresācija uz konkrētu lapu
-              window.location.href =
-                "https://grannies.lv/pages/involved.html";
-            } else {
-              alert("Radās kļūda. Lūdzu, mēģiniet vēlreiz.");
-            }
+          const formData = new FormData(form);
+          fetch(form.action, {
+            method: form.method,
+            body: formData,
+            headers: {Accept: "application/json"},
           })
-          .catch((error) => {
-            alert("Savienojuma kļūda. Mēģiniet vēlreiz.");
-          });
-      }
+            .then((response) => {
+              if (response.ok) {
+                alert("Paldies! Jūsu anketa ir iesniegta.");
+                form.reset();
+                form.classList.remove("was-validated"); // Noņem validācijas statusu pēc iesniegšanas
 
-      form.classList.add("was-validated"); // Pievieno Bootstrap validāciju
-    },
-    false
-  );
+                // Pāradresācija uz konkrētu lapu
+                window.location.href =
+                  "https://grannies.lv/pages/involved.html";
+              } else {
+                alert("Radās kļūda. Lūdzu, mēģiniet vēlreiz.");
+              }
+            })
+            .catch((error) => {
+              alert("Savienojuma kļūda. Mēģiniet vēlreiz.");
+            });
+        }
+
+        form.classList.add("was-validated"); // Pievieno Bootstrap validāciju
+      },
+      false
+    );
+  }
 });
+
