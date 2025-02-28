@@ -168,45 +168,7 @@ window.onload = function () {
   }
 };
 
-// Attēlu karuselis ar aprakstiem
-const captionsForTETE = [
-  "<i>Teaching English to Elderly</i> (TETE) nodarbība",
-  "<i>Teaching English to Elderly</i> (TETE) Rīgas grupa saņēmusi APLIECĪBAS  - projekts noslēdzies, bet mācīšanās turpināsies!",
-  "Every word learned opens a new door!",
-  "Pēc projekta darba grupas apspriedes ar Lietuvas partneriem skaistajā ēkā <i>Ola Fondation</i>",
-  "Biedrības <i>Vecmāmiņas.lv</i> Erasmus+ TETE noslēguma konferences dalībnieki 2024.gada vasarā.",
-];
-
-const captionsForFlexibli = [
-  "Draudzības vakars Islandē bija iespaidīgs – kursu dalībnieki no 9 valstīm",
-  "Draudzības vakars Islandē bija iespaidīgs – kursu dalībnieki no 9 valstīm",
-  "Kursi beigušies sertifikāti un dāvanas saņemtas – grupa no Latvijas",
-  "Nodarbība pie vienas no pasniedzējām - radoša, atraktīva! <br>Apguvām ļoti noderīgas metodes (gan bērnu, gan pieaugušo izglītošanas procesam).",
-];
-
-const captionsForInovation = [
-  "Ziedojums Ukrainai",
-  "Vēstures diena. Nodarbība un lekcija Valmieras muzejā - De Woldemer",
-  "Aptaujā piedalījās 48 respondenti.",
-  "Brīvprātīgo diena",
-  "Valodas diena",
-];
-
-// Vispārīga funkcija, kas maina tekstu atkarībā no attēla
-function changeCarouselText(carouselId, captionsArray) {
-  $(`#${carouselId}`).on("slid.bs.carousel", function (event) {
-    const index = event.to;
-    document.getElementById(
-      carouselId.replace("galleryCarousel", "carouselText")
-    ).innerHTML = captionsArray[index];
-  });
-}
-
 window.addEventListener("scroll", toggleScrollButton);
-
-changeCarouselText("galleryCarouselTETE", captionsForTETE);
-changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
-changeCarouselText("galleryCarouselInovation", captionsForInovation);
 
 document.addEventListener("DOMContentLoaded", function () {
   // Check if the form exists before adding the event listener
