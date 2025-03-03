@@ -214,16 +214,22 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-document.getElementById("readMoreText").addEventListener("click", function () {
-  let moreText = document.getElementById("more");
+document.addEventListener("DOMContentLoaded", function () {
   let readMoreText = document.getElementById("readMoreText");
 
-  if (moreText.style.display === "none") {
-    moreText.style.display = "inline";
-    readMoreText.textContent = "Lasīt mazāk";
-  } else {
-    moreText.style.display = "none";
-    readMoreText.textContent = "Lasīt vairāk...";
+  if (readMoreText) {
+    readMoreText.addEventListener("click", function () {
+      let moreText = document.getElementById("more");
+
+      if (moreText.style.display === "none") {
+        moreText.style.display = "inline";
+        readMoreText.textContent = "Lasīt mazāk";
+      } else {
+        moreText.style.display = "none";
+        readMoreText.textContent = "Lasīt vairāk...";
+      }
+    });
   }
 });
+
 

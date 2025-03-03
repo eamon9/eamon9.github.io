@@ -182,20 +182,6 @@
         "inovation4.png",
         "inovation5.png"
       ]
-    },
-    {
-      "id": "",
-      "title": "<i></i>",
-      "subtitle": "",
-      "date": "",
-      "projectNumber": "",
-      "timeframe": "",
-      "projectTarget": "",
-      "description": "",
-      "carouselId": "",
-      "carouselTextId": "",
-      "defaultCarouselText": "",
-      "gallery": []
     }
   ]
 }

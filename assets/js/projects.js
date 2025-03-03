@@ -1,3 +1,21 @@
+// Pamats projects.json
+/* 
+{
+      "id": "",
+      "title": "<i></i>",
+      "subtitle": "",
+      "date": "",
+      "projectNumber": "",
+      "timeframe": "",
+      "projectTarget": "",
+      "description": "",
+      "carouselId": "",
+      "carouselTextId": "",
+      "defaultCarouselText": "",
+      "gallery": []
+    }
+*/
+
 document.addEventListener("DOMContentLoaded", function () {
   fetch("../assets/JSON/projects.json") // Ielādē JSON failu
     .then((response) => response.json()) // Parsē datus
@@ -118,7 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
         changeCarouselText("galleryCarouselTETE", captionsForTETE);
         changeCarouselText("galleryCarouselFlexibli", captionsForFlexibli);
         changeCarouselText("galleryCarouselInovation", captionsForInovation);
-
       });
     })
     .catch((error) => console.error("Kļūda ielādējot projektus:", error));
@@ -190,10 +207,9 @@ function sortProjects(sortBy) {
 
   // Ievieto sakārtotos projektus atpakaļ konteinerā
   const accordion = document.getElementById("projectAccordion");
+  console.log("Sorting by:", sortBy);
   projects.forEach((project) => accordion.appendChild(project));
 }
-
-
 
 // funkcija, kas ļauj lietotājam sakārtot projektus pēc vajadzības
 document.addEventListener("DOMContentLoaded", function () {
@@ -203,7 +219,10 @@ document.addEventListener("DOMContentLoaded", function () {
   sortSelect.value = "date-desc";
 
   // Automātiski kārto pēc jaunākajiem projektiem, kad lapa ielādējas
-  sortProjects("date-desc");
+
+  setTimeout(() => {
+    sortProjects("date-desc");
+  }, 1000);
 
   // Klausās izmaiņas, ja lietotājs maina kārtošanas veidu
   sortSelect.addEventListener("change", function () {
