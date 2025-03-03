@@ -73,6 +73,14 @@ document.addEventListener("DOMContentLoaded", function () {
                 .join("")
             : "";
 
+        const documentHtml = project.documentUrl
+          ? `<p>Iepazīties ar dokumentu var <a href="${project.documentUrl}" target="_blank">šeit</a>.</p>`
+          : "";
+
+        const documentHtml2 = project.documentUrl2
+          ? `<p>Kalendārs atrodas <a href="${project.documentUrl2}" target="_blank">šeit</a>.</p>`
+          : "";
+
         const projectHtml = `
           <div class="accordion-item" data-name="${project.title}" data-date="${
           project.date
@@ -103,6 +111,8 @@ document.addEventListener("DOMContentLoaded", function () {
                     : ""
                 }
                 <p>${project.description || ""}</p>
+                ${documentHtml}
+                ${documentHtml2}
                 ${
                   galleryHtml
                     ? `
