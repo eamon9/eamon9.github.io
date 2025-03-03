@@ -214,3 +214,16 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+document.getElementById("readMoreText").addEventListener("click", function () {
+  let moreText = document.getElementById("more");
+  let readMoreText = document.getElementById("readMoreText");
+
+  if (moreText.style.display === "none") {
+    moreText.style.display = "inline";
+    readMoreText.textContent = "Lasīt mazāk";
+  } else {
+    moreText.style.display = "none";
+    readMoreText.textContent = "Lasīt vairāk...";
+  }
+});
+
