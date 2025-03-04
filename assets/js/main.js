@@ -7,9 +7,60 @@ async function loadComponent(id, file) {
     const response = await fetch(`/components/${file}`);
     if (!response.ok) throw new Error(`Neizdevās ielādēt: ${file}`);
     document.getElementById(id).innerHTML = await response.text();
+
+    // Ja ielādētais fails ir footer.html, tad izsauc SVG apstrādi
+    if (id === "footer") {
+      console.log("Footer ielādēts!");
+      handleSvgIcons(); // Funkcija, kas apstrādā SVG
+
+      // Pop-up funkcionalitāte
+      const chatPopUp = document.getElementById("chat-pop-up");
+      const icon1 = document.getElementById("icon1");
+
+      // Funkcija, lai aizvērtu pop-up
+      const closePopUp = () => {
+        chatPopUp.classList.remove("active");
+        chatPopUp.classList.add("hidden");
+      };
+
+      // Funkcija, lai atvērtu pop-up
+      const openPopUp = () => {
+        chatPopUp.classList.remove("hidden");
+        chatPopUp.classList.add("active");
+      };
+
+      // Pievienojam klikšķa notikumu ikonas klikšķim (ja tiek nospiesta #icon1)
+      icon1.addEventListener("click", (event) => {
+        chatPopUp.classList.contains("active") ? closePopUp() : openPopUp();
+        event.stopPropagation(); // Novēršam klikšķa pārnešanu uz dokumentu
+      });
+
+      // Pievienojam klikšķa notikumu ārpus pop-up, lai aizvērtu to, ja klikšķis ir ārpus tā
+      document.addEventListener("click", (event) => {
+        if (!chatPopUp.contains(event.target)) {
+          closePopUp();
+        }
+      });
+    }
   } catch (error) {
     console.error(error);
   }
+}
+
+
+// Funkcija, kas apstrādā SVG pēc ielādes
+function handleSvgIcons() {
+  const svgs = document.querySelectorAll(".icon svg");
+  const a = document.querySelectorAll(".additional-icons a");
+  console.log("Atrasto SVG skaits:", svgs.length);
+  console.log("Atrasto A tag skaits:", a.length);
+  
+
+  svgs.forEach((svg) => {
+    svg.addEventListener("click", () => {
+      console.log("Klikšķis uz:", svg.classList);
+    });
+  });
 }
 
 // Funkcija dropdown loģikas inicializācijai
@@ -170,8 +221,8 @@ window.onload = function () {
 
 window.addEventListener("scroll", toggleScrollButton);
 
+// Pārbauda vai anketa šajā lapā atrodas
 document.addEventListener("DOMContentLoaded", function () {
-  // Check if the form exists before adding the event listener
   const form = document.querySelector("form");
   if (form) {
     form.addEventListener(
@@ -214,6 +265,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Lasīt vairāk... pogas loģika, lai parādās un pazūd teksts
 document.addEventListener("DOMContentLoaded", function () {
   let readMoreText = document.getElementById("readMoreText");
 
@@ -231,5 +283,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 });
-
-

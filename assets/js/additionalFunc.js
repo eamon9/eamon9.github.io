@@ -10,7 +10,7 @@ export function toggleScrollButton() {
   const scrollButton = document.getElementById("scroll-to-top");
   
   if (window.scrollY > 200) { // Ja esam vairāk nekā 200px no augšas
-    scrollButton.style.display = "block";
+    scrollButton.style.display = "flex";
   } else {
     scrollButton.style.display = "none";
   }

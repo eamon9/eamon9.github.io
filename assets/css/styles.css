@@ -17,14 +17,6 @@ i {
   text-transform: uppercase;
 }
 
-/* .title-container {
-  background-image: url("/assets/images/title-background.png");
-  background-size: cover;
-  background-size: 100%;
-  background-position: 10% 80%;
-  background-repeat: no-repeat;
-} */
-
 .title {
   font-size: 3rem;
 }
@@ -62,13 +54,6 @@ h1 {
   }
 }
 
-/* .img-fluid {
-  width: 200%;
-  height: 200%;
-  overflow: hidden;
-  object-position: top left;
-} */
-
 .modal-xxl {
   --bs-modal-width: 60%;
 }
@@ -86,11 +71,108 @@ h1 {
   z-index: 9999;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
   font-size: 1.5rem;
+  height: 60px;
+  width: 60px;
 }
 
 #scroll-to-top:hover {
   cursor: pointer;
 }
+
+/*~ CHAT POP UP */
+
+#chat-pop-up {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  bottom: 80px;
+  right: 0px;
+  background-color: rgb(247, 137, 83);
+  color: white;
+  padding: 10px;
+  margin: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  max-height: 80vh;
+  max-width: 100%;
+  transition: all 0.8s ease;
+}
+
+#chat-pop-up.hidden #icon1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#chat-pop-up.hidden {
+  height: 60px;
+  width: 60px;
+}
+
+#chat-pop-up.active {
+  height: auto; /* Augstums pielāgojas pēc satura */
+  padding: 20px;
+}
+
+#chat-pop-up .icon {
+  cursor: pointer;
+  margin-bottom: 15px;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+#chat-pop-up .icon:hover {
+  transform: scale(1.1); /* Lielāks izmērs, kad peles rādītājs uzliek uz ikonas */
+}
+
+#chat-pop-up .icon-text {
+  display: flex;
+  flex-direction: column; /* Ikona un teksts izkārtoti vertikāli */
+  align-items: flex-start; /* Pielāgo tekstus sākotnējiem elementiem */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#chat-pop-up.active .icon-text {
+  opacity: 1; /* Teksts kļūst redzams, kad izvēlne ir aktīva */
+}
+
+#chat-pop-up .icon:first-child {
+  margin-top: 0; /* Pirmajai ikonai nebūs augšējā attāluma */
+}
+
+/* Paslēpt citas ikonas sākumā */
+#chat-pop-up .additional-icons {
+  display: none;
+}
+
+/* Parādīt citas ikonas, kad chat-pop-up ir aktīvs */
+#chat-pop-up.active .additional-icons {
+  display: block;
+}
+
+#chat-pop-up .icon:first-child {
+  display: block;
+}
+
+.icon {
+  display: flex;
+  align-items: center; /* Izvietojiet visus elementus horizontāli */
+  gap: 10px; /* Attālums starp ikonām un tekstu */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center; /* Ikona un teksts būs blakus */
+}
+
+.icon-container h3 {
+  margin-left: 10px; /* Attālums starp ikonu un tekstu */
+}
+
+/*! CUSTOM IMG */
 
 @media (max-width: 768px) {
   .custom-img {
@@ -144,10 +226,6 @@ h1 {
   cursor: pointer;
   transition: transform 0.3s ease;
 }
-
-/* .main-img:hover {
-  transform: scale(1.05);
-} */
 
 /* Author */
 
