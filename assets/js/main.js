@@ -11,7 +11,7 @@ async function loadComponent(id, file) {
     // Ja ielādētais fails ir footer.html, tad izsauc SVG apstrādi
     if (id === "footer") {
       console.log("Footer ielādēts!");
-      handleSvgIcons(); // Funkcija, kas apstrādā SVG
+      handleSvgIcons();
 
       // Pop-up funkcionalitāte
       const chatPopUp = document.getElementById("chat-pop-up");
@@ -31,6 +31,15 @@ async function loadComponent(id, file) {
 
       // Pievienojam klikšķa notikumu ikonas klikšķim (ja tiek nospiesta #icon1)
       icon1.addEventListener("click", (event) => {
+        if (!chatPopUp.classList.contains("active")) {
+          openPopUp();
+        } else {
+          closePopUp();
+        }
+        event.stopPropagation(); // Novēršam klikšķa pārnešanu uz dokumentu
+      });
+
+      chatPopUp.addEventListener("click", (event) => {
         if (!chatPopUp.classList.contains("active")) {
           openPopUp();
         } else {
@@ -149,7 +158,7 @@ function initializeDropdowns() {
 function setActiveNavLink() {
   const navLinks = document.querySelectorAll(
     ".nav-link, .dropdown-item, footer a"
-  ); // Iekļauj arī footer linkus
+  );
   const currentPath = window.location.pathname + window.location.hash;
 
   navLinks.forEach((link) => {
