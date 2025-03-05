@@ -1,7 +1,7 @@
 import {initFormValidation} from "./formValidation.js";
 import {scrollToTop, toggleScrollButton} from "./additionalFunc.js";
 
-// Funkcija, lai ielādētu komponentus (header un footer)
+// Funkcija, lai ielādētu komponentus (header un footer) un organizētu chat-pop-up
 async function loadComponent(id, file) {
   try {
     const response = await fetch(`/components/${file}`);
@@ -31,7 +31,11 @@ async function loadComponent(id, file) {
 
       // Pievienojam klikšķa notikumu ikonas klikšķim (ja tiek nospiesta #icon1)
       icon1.addEventListener("click", (event) => {
-        chatPopUp.classList.contains("active") ? closePopUp() : openPopUp();
+        if (!chatPopUp.classList.contains("active")) {
+          openPopUp();
+        } else {
+          closePopUp();
+        }
         event.stopPropagation(); // Novēršam klikšķa pārnešanu uz dokumentu
       });
 
@@ -46,6 +50,7 @@ async function loadComponent(id, file) {
     console.error(error);
   }
 }
+
 
 
 // Funkcija, kas apstrādā SVG pēc ielādes
