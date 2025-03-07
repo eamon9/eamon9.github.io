@@ -79,6 +79,10 @@ h1 {
   cursor: pointer;
 }
 
+#scroll-to-top:hover svg path {
+  fill: rgb(247, 137, 83);
+}
+
 /*~ CHAT POP UP */
 
 #chat-pop-up {
