@@ -161,6 +161,14 @@ function setActiveNavLink() {
   );
   const currentPath = window.location.pathname + window.location.hash;
 
+  // Ja atrodamies sākumlapā tad active klase netiek pievienota nekam
+  if (
+    window.location.pathname === "/" ||
+    window.location.pathname === "index.html"
+  ) {
+    return;
+  }
+
   navLinks.forEach((link) => {
     try {
       if (!link.href || link.href === "#") {
@@ -198,6 +206,7 @@ function setActiveNavLink() {
     }
   });
 }
+
 
 // Izsaucam sākotnēji, kad lapa ielādējas
 document.addEventListener("DOMContentLoaded", async function () {
