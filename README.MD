@@ -35,7 +35,7 @@ next
 
 + Aktualizēt dropdown menu lietas, kuras paliek, kuras ņemam ārā un kādas pievienojam
 
-+ "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
+ "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
 
 + Jāatrisina problēma ar dropdown, pirmo reizi izvēloties viss OK, bet ja vēlreiz atver to pašu dropdown un nospiež citu izvēli, tā neiekrāsojas kā "active" klase!
 
