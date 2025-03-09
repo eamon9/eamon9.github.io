@@ -1,7 +1,7 @@
 import {initFormValidation} from "./formValidation.js";
 import {scrollToTop, toggleScrollButton} from "./additionalFunc.js";
 
-// Funkcija, lai ielādētu komponentus (header un footer) un organizētu chat-pop-up
+// Funkcija, lai ielādētu komponentus (header un footer) un organizētu chat-pop-up ..
 async function loadComponent(id, file) {
   try {
     const response = await fetch(`/components/${file}`);
