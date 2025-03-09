@@ -21,25 +21,21 @@ next
 
 + Palaist lapu uz GitHub Pages
 
-- Izmēģināt anketas nosūtīt uz e-pastu ar skaistu formatējumu
++ Izmēģināt anketas nosūtīt uz e-pastu ar skaistu formatējumu
 
 + Ielikt logo un pielāgot krāsas pēc klienta vēlmēm
 
-- Iegādāties domēnu un hosting uz area.lv lapas, bet ja vajag tad domēns pats ir uz NIC.lv
++ Iegādāties domēnu un hosting uz area.lv lapas, bet ja vajag tad domēns pats ir uz NIC.lv
 
-- Izveidot facebook grupu vecmammām ar visām saitēm uz mājaslapu
++/- Izveidot facebook grupu vecmammām ar visām saitēm uz mājaslapu
 
 - Izveidot youtube kontu vecmammām ar visām saitēm uz mājaslapu
-
-- Izveidot instagram kontu vecmammām ar visām saitēm uz mājaslapu
 
 - Mājaslapā vajadzētu emebedot kādu video un vai bildes no facebook un instagram un dot iespēju sekot līdzi un iesaistīties
 
 + Aktualizēt dropdown menu lietas, kuras paliek, kuras ņemam ārā un kādas pievienojam
 
-- Izveidot whatsapp ikonas ik pa laikam nomaiņu uz klausule un sms ikonām
-
-- "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
++ "kamolins-un-gramata.jpg" vajag lielāku un iespējams kvalitatīvāku foto
 
 + Jāatrisina problēma ar dropdown, pirmo reizi izvēloties viss OK, bet ja vēlreiz atver to pašu dropdown un nospiež citu izvēli, tā neiekrāsojas kā "active" klase!
 
